@@ -8,23 +8,19 @@
 import Foundation
 
 struct CalendarViewModel {
-    var selectedYear: Int = 2024
+    var year: Int
     var calendar = Calendar.current
 
     func dateForMonth(_ month: Int) -> Date {
-        calendar.date(from: DateComponents(year: selectedYear, month: month))!
+        calendar.date(from: DateComponents(year: year, month: month)) ?? Date()
     }
     
-    func calendarDataForYear(year: Int) -> [CalendarData] {
+    func dataForYear(_ year: Int) -> [CalendarData] {
         var calendarDataList = [CalendarData]()
-
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
-
-        let calendar = Calendar.current
         let startDate = dateFormatter.date(from: "\(year)/01/01")!
         let endDate = dateFormatter.date(from: "\(year)/12/31")!
-
         for date in DateInterval(start: startDate, end: endDate).days {
             let dateString = dateFormatter.string(from: date)
             let calendarData = CalendarData(date: dateString,
@@ -35,7 +31,6 @@ struct CalendarViewModel {
                                             isSubmitted: false)
             calendarDataList.append(calendarData)
         }
-
         return calendarDataList
     }
 }
