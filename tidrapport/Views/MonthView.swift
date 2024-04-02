@@ -18,18 +18,13 @@ struct MonthView: View {
                 .font(.title)
                 .padding(.top, 8)
             HStack {
-                DateView(dateString: "W",
-                         dateType: .week)
+                CalendarCellView(text: "W",
+                                 type: .week)
                 ForEach(0..<7, id: \.self) { index in
-                    DateView(dateString: daysOfWeek[index],
-                             dateType: .day)
+                    CalendarCellView(text: daysOfWeek[index],
+                                     type: .day)
                 }
             }
-
-            let range = calendar.range(of: .day, in: .month, for: month)!
-            let startDate = calendar.date(from: calendar.dateComponents([.year, .month], from: month))!
-            let startDayOfWeek = calendar.component(.weekday, from: startDate) - 1
-
             GridStack(rows: (range.count + startDayOfWeek + 6) / 7,
                       columns: 8) { row, col in
                 if col > 0 {
@@ -37,22 +32,33 @@ struct MonthView: View {
                         let day = row * 7 + col - startDayOfWeek + 1
                         if day <= range.count {
                             let date = calendar.date(byAdding: .day, value: day - 1, to: startDate)!
-                            DateView(dateString: "\(calendar.component(.day, from: date))",
-                                     dateType: .date,
-                                     selectable: true)
+                            CalendarCellView(text: "\(calendar.component(.day, from: date))",
+                                             type: .date,
+                                             selectable: true)
                         } else {
-                            DateView(dateType: .date)
+                            CalendarCellView(type: .date)
                         }
                     } else {
-                        DateView(dateType: .date)
+                        CalendarCellView(type: .date)
                     }
                 } else {
-                    let weekNumber = calendar.component(.weekOfYear, from: calendar.date(byAdding: .day, value: row * 7, to: startDate)!)
-                    DateView(dateString: "\(weekNumber)",
-                             dateType: .week)
-
+                    CalendarCellView(text: weekNumber(for: row),
+                                     type: .week)
                 }
             }
         }
+    }
+}
+
+// MARK: - Private
+
+private extension MonthView {
+
+    var range: Range<Int> { calendar.range(of: .day, in: .month, for: month)! }
+    var startDate: Date { calendar.date(from: calendar.dateComponents([.year, .month], from: month))! }
+    var startDayOfWeek: Int { calendar.component(.weekday, from: startDate) - 1 }
+
+    func weekNumber(for row: Int) -> String {
+        "\(calendar.component(.weekOfYear, from: calendar.date(byAdding: .day, value: row * 7, to: startDate)!))"
     }
 }

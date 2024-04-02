@@ -1,5 +1,5 @@
 //
-//  DateView.swift
+//  CalendarCellView.swift
 //  tidrapport
 //
 //  Created by Victor Rendon on 2024-03-27.
@@ -9,23 +9,23 @@ import SwiftUI
 
 struct CalendarCellView: View {
     @State var isSelected = false
-    let dateString: String
-    var dateType: DateType
+    let text: String
+    var type: CellType
     let selectable: Bool
 
-    init(dateString: String = "", 
-         dateType: DateType,
+    init(text: String = "",
+         type: CellType,
          selectable: Bool = false) {
-        self.dateString = dateString
-        self.dateType = dateType
+        self.text = text
+        self.type = type
         self.selectable = selectable
     }
 
     var body: some View {
-        Text(dateString)
+        Text(text)
             .multilineTextAlignment(.leading)
             .frame(minWidth: 0, maxWidth: .infinity)
-            .background(isSelected ? DateType.selected.bgColor : dateType.bgColor)
+            .background(isSelected ? CellType.selected.bgColor : type.bgColor)
             .padding(4)
             .onTapGesture {
                 if selectable {
@@ -39,7 +39,7 @@ struct CalendarCellView: View {
 
 extension CalendarCellView {
 
-    enum DateType {
+    enum CellType {
         case day
         case week
         case date

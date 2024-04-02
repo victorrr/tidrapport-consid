@@ -10,7 +10,7 @@
 		E048A8192BB2BE1C002271C3 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A8182BB2BE1C002271C3 /* CalendarData.swift */; };
 		E048A81B2BB2D071002271C3 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A81A2BB2D071002271C3 /* CalendarViewModel.swift */; };
 		E048A81F2BB2D126002271C3 /* DateIntervalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A81E2BB2D126002271C3 /* DateIntervalExtension.swift */; };
-		E06BF5722BB447EB007A135D /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06BF5712BB447EB007A135D /* DateView.swift */; };
+		E06BF5722BB447EB007A135D /* CalendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06BF5712BB447EB007A135D /* CalendarCellView.swift */; };
 		E06BF5742BB44854007A135D /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06BF5732BB44854007A135D /* GridStack.swift */; };
 		E06BF5762BB44896007A135D /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06BF5752BB44896007A135D /* MonthView.swift */; };
 		E0BCB0602BB1AE2E00E1CD4B /* tidrapportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCB05F2BB1AE2E00E1CD4B /* tidrapportApp.swift */; };
@@ -23,7 +23,7 @@
 		E048A8182BB2BE1C002271C3 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
 		E048A81A2BB2D071002271C3 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		E048A81E2BB2D126002271C3 /* DateIntervalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalExtension.swift; sourceTree = "<group>"; };
-		E06BF5712BB447EB007A135D /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
+		E06BF5712BB447EB007A135D /* CalendarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellView.swift; sourceTree = "<group>"; };
 		E06BF5732BB44854007A135D /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
 		E06BF5752BB44896007A135D /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 		E0BCB05C2BB1AE2E00E1CD4B /* tidrapport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tidrapport.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +65,7 @@
 		E06BF5702BB447D1007A135D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E06BF5712BB447EB007A135D /* DateView.swift */,
+				E06BF5712BB447EB007A135D /* CalendarCellView.swift */,
 				E06BF5732BB44854007A135D /* GridStack.swift */,
 				E06BF5752BB44896007A135D /* MonthView.swift */,
 			);
@@ -179,7 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E06BF5722BB447EB007A135D /* DateView.swift in Sources */,
+				E06BF5722BB447EB007A135D /* CalendarCellView.swift in Sources */,
 				E048A81B2BB2D071002271C3 /* CalendarViewModel.swift in Sources */,
 				E048A81F2BB2D126002271C3 /* DateIntervalExtension.swift in Sources */,
 				E06BF5762BB44896007A135D /* MonthView.swift in Sources */,
