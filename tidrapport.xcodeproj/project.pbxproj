@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E048A8192BB2BE1C002271C3 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A8182BB2BE1C002271C3 /* CalendarData.swift */; };
+		E048A81B2BB2D071002271C3 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A81A2BB2D071002271C3 /* CalendarViewModel.swift */; };
+		E048A81F2BB2D126002271C3 /* DateIntervalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A81E2BB2D126002271C3 /* DateIntervalExtension.swift */; };
+		E06BF5722BB447EB007A135D /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06BF5712BB447EB007A135D /* DateView.swift */; };
+		E06BF5742BB44854007A135D /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06BF5732BB44854007A135D /* GridStack.swift */; };
+		E06BF5762BB44896007A135D /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06BF5752BB44896007A135D /* MonthView.swift */; };
+		E0BCB0602BB1AE2E00E1CD4B /* tidrapportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCB05F2BB1AE2E00E1CD4B /* tidrapportApp.swift */; };
+		E0BCB0622BB1AE2E00E1CD4B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCB0612BB1AE2E00E1CD4B /* CalendarView.swift */; };
+		E0BCB0642BB1AE3000E1CD4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BCB0632BB1AE3000E1CD4B /* Assets.xcassets */; };
+		E0BCB0672BB1AE3000E1CD4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BCB0662BB1AE3000E1CD4B /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E048A8182BB2BE1C002271C3 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
+		E048A81A2BB2D071002271C3 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		E048A81E2BB2D126002271C3 /* DateIntervalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalExtension.swift; sourceTree = "<group>"; };
+		E06BF5712BB447EB007A135D /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
+		E06BF5732BB44854007A135D /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
+		E06BF5752BB44896007A135D /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		E0BCB05C2BB1AE2E00E1CD4B /* tidrapport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tidrapport.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0BCB05F2BB1AE2E00E1CD4B /* tidrapportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tidrapportApp.swift; sourceTree = "<group>"; };
+		E0BCB0612BB1AE2E00E1CD4B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		E0BCB0632BB1AE3000E1CD4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E0BCB0662BB1AE3000E1CD4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E0BCB0592BB1AE2E00E1CD4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E048A81C2BB2D09D002271C3 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				E0BCB0612BB1AE2E00E1CD4B /* CalendarView.swift */,
+				E048A8182BB2BE1C002271C3 /* CalendarData.swift */,
+				E048A81A2BB2D071002271C3 /* CalendarViewModel.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		E048A81D2BB2D103002271C3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E048A81E2BB2D126002271C3 /* DateIntervalExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E06BF5702BB447D1007A135D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E06BF5712BB447EB007A135D /* DateView.swift */,
+				E06BF5732BB44854007A135D /* GridStack.swift */,
+				E06BF5752BB44896007A135D /* MonthView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E0BCB0532BB1AE2E00E1CD4B = {
+			isa = PBXGroup;
+			children = (
+				E0BCB05E2BB1AE2E00E1CD4B /* tidrapport */,
+				E0BCB05D2BB1AE2E00E1CD4B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E0BCB05D2BB1AE2E00E1CD4B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E0BCB05C2BB1AE2E00E1CD4B /* tidrapport.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0BCB05E2BB1AE2E00E1CD4B /* tidrapport */ = {
+			isa = PBXGroup;
+			children = (
+				E06BF5702BB447D1007A135D /* Views */,
+				E048A81D2BB2D103002271C3 /* Extensions */,
+				E0BCB05F2BB1AE2E00E1CD4B /* tidrapportApp.swift */,
+				E048A81C2BB2D09D002271C3 /* Calendar */,
+				E0BCB0632BB1AE3000E1CD4B /* Assets.xcassets */,
+				E0BCB0652BB1AE3000E1CD4B /* Preview Content */,
+			);
+			path = tidrapport;
+			sourceTree = "<group>";
+		};
+		E0BCB0652BB1AE3000E1CD4B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E0BCB0662BB1AE3000E1CD4B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E0BCB05B2BB1AE2E00E1CD4B /* tidrapport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0BCB06A2BB1AE3000E1CD4B /* Build configuration list for PBXNativeTarget "tidrapport" */;
+			buildPhases = (
+				E0BCB0582BB1AE2E00E1CD4B /* Sources */,
+				E0BCB0592BB1AE2E00E1CD4B /* Frameworks */,
+				E0BCB05A2BB1AE2E00E1CD4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tidrapport;
+			productName = tidrapport;
+			productReference = E0BCB05C2BB1AE2E00E1CD4B /* tidrapport.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E0BCB0542BB1AE2E00E1CD4B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					E0BCB05B2BB1AE2E00E1CD4B = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = E0BCB0572BB1AE2E00E1CD4B /* Build configuration list for PBXProject "tidrapport" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E0BCB0532BB1AE2E00E1CD4B;
+			productRefGroup = E0BCB05D2BB1AE2E00E1CD4B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E0BCB05B2BB1AE2E00E1CD4B /* tidrapport */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E0BCB05A2BB1AE2E00E1CD4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0BCB0672BB1AE3000E1CD4B /* Preview Assets.xcassets in Resources */,
+				E0BCB0642BB1AE3000E1CD4B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E0BCB0582BB1AE2E00E1CD4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E06BF5722BB447EB007A135D /* DateView.swift in Sources */,
+				E048A81B2BB2D071002271C3 /* CalendarViewModel.swift in Sources */,
+				E048A81F2BB2D126002271C3 /* DateIntervalExtension.swift in Sources */,
+				E06BF5762BB44896007A135D /* MonthView.swift in Sources */,
+				E0BCB0622BB1AE2E00E1CD4B /* CalendarView.swift in Sources */,
+				E06BF5742BB44854007A135D /* GridStack.swift in Sources */,
+				E048A8192BB2BE1C002271C3 /* CalendarData.swift in Sources */,
+				E0BCB0602BB1AE2E00E1CD4B /* tidrapportApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E0BCB0682BB1AE3000E1CD4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E0BCB0692BB1AE3000E1CD4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E0BCB06B2BB1AE3000E1CD4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"tidrapport/Preview Content\"";
+				DEVELOPMENT_TEAM = 67RZCJTPG4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = consid.tidrapport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E0BCB06C2BB1AE3000E1CD4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"tidrapport/Preview Content\"";
+				DEVELOPMENT_TEAM = 67RZCJTPG4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = consid.tidrapport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E0BCB0572BB1AE2E00E1CD4B /* Build configuration list for PBXProject "tidrapport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0BCB0682BB1AE3000E1CD4B /* Debug */,
+				E0BCB0692BB1AE3000E1CD4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0BCB06A2BB1AE3000E1CD4B /* Build configuration list for PBXNativeTarget "tidrapport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0BCB06B2BB1AE3000E1CD4B /* Debug */,
+				E0BCB06C2BB1AE3000E1CD4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E0BCB0542BB1AE2E00E1CD4B /* Project object */;
+}
