@@ -7,13 +7,15 @@
 
 import SwiftUI
 
-struct DateView: View {
+struct CalendarCellView: View {
     @State var isSelected = false
     let dateString: String
     var dateType: DateType
     let selectable: Bool
 
-    init(dateString: String = "", dateType: DateType, selectable: Bool = false) {
+    init(dateString: String = "", 
+         dateType: DateType,
+         selectable: Bool = false) {
         self.dateString = dateString
         self.dateType = dateType
         self.selectable = selectable
@@ -35,7 +37,7 @@ struct DateView: View {
 
 // MARK: - DateType
 
-extension DateView {
+extension CalendarCellView {
 
     enum DateType {
         case day
