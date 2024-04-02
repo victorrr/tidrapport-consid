@@ -40,8 +40,9 @@ class MonthViewModel: ObservableObject {
         row * 7 + col - startDayOfWeek + 1
     }
 
-    func date(for day: Int) -> Date {
-        calendar.date(byAdding: .day, value: day - 1, to: startDate)!
+    func date(for day: Int) -> String {
+        let date = calendar.date(byAdding: .day, value: day - 1, to: startDate)!
+        return "\(calendar.component(.day, from: date))"
     }
 
     func weekNumber(for row: Int) -> Int {

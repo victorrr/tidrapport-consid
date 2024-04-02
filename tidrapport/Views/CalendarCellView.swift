@@ -9,10 +9,10 @@ import SwiftUI
 
 struct CalendarCellView: View {
     @State var isSelected = false
-    let text: String
+    let text: String?
     var type: CellType
 
-    init(text: String = "",
+    init(text: String? = nil,
          type: CellType,
          selectable: Bool = false) {
         self.text = text
@@ -20,7 +20,7 @@ struct CalendarCellView: View {
     }
 
     var body: some View {
-        Text(text)
+        Text(text ?? "")
             .multilineTextAlignment(.leading)
             .frame(minWidth: 0, maxWidth: .infinity)
             .background(isSelected ? CellType.selected.bgColor : type.bgColor)
@@ -41,6 +41,7 @@ extension CalendarCellView {
         case day
         case week
         case date
+        case emptyDate
         case selected
         case reported
         case submitted
@@ -51,7 +52,7 @@ extension CalendarCellView {
                 return .brown
             case .week:
                 return .gray
-            case .date:
+            case .date, .emptyDate:
                 return .clear
             case .selected:
                 return .red
@@ -79,6 +80,8 @@ extension CalendarCellView {
                 return "Week"
             case .date:
                 return "Date"
+            case .emptyDate:
+                return "Empty Date"
             case .selected:
                 return "Selected"
             case .reported:
