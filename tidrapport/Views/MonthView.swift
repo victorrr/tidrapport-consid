@@ -8,33 +8,26 @@
 import SwiftUI
 
 struct MonthView: View {
-    let month: Date
-    let calendar = Calendar.current
-    let daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"]
+    @ObservedObject var viewModel: MonthViewModel
 
     var body: some View {
         VStack(alignment: .center) {
-            Text(calendar.shortMonthSymbols[calendar.component(.month, from: month) - 1])
+            Text(viewModel.monthName.capitalized)
                 .font(.title)
                 .padding(.top, 8)
             HStack {
-                CalendarCellView(text: "W",
-                                 type: .week)
+                CalendarCellView(text: "W", type: .week)
                 ForEach(0..<7, id: \.self) { index in
-                    CalendarCellView(text: daysOfWeek[index],
-                                     type: .day)
+                    CalendarCellView(text: viewModel.daysOfWeek[index], type: .day)
                 }
             }
-            GridStack(rows: (range.count + startDayOfWeek + 6) / 7,
-                      columns: 8) { row, col in
+            GridStack(rows: viewModel.rows, columns: 8) { row, col in
                 if col > 0 {
-                    if row * 7 + col >= startDayOfWeek {
-                        let day = row * 7 + col - startDayOfWeek + 1
-                        if day <= range.count {
-                            let date = calendar.date(byAdding: .day, value: day - 1, to: startDate)!
-                            CalendarCellView(text: "\(calendar.component(.day, from: date))",
-                                             type: .date,
-                                             selectable: true)
+                    if row * 7 + col >= viewModel.startDayOfWeek {
+                        let day = viewModel.day(for: row, col: col)
+                        if day <= viewModel.range.count {
+                            let date = viewModel.date(for: day)
+                            CalendarCellView(text: "\(viewModel.calendar.component(.day, from: date))", type: .date)
                         } else {
                             CalendarCellView(type: .date)
                         }
@@ -42,23 +35,17 @@ struct MonthView: View {
                         CalendarCellView(type: .date)
                     }
                 } else {
-                    CalendarCellView(text: weekNumber(for: row),
-                                     type: .week)
+                    CalendarCellView(text: "\(viewModel.weekNumber(for: row))", type: .week)
                 }
             }
         }
     }
 }
 
-// MARK: - Private
+// MARK: - Preview
 
-private extension MonthView {
-
-    var range: Range<Int> { calendar.range(of: .day, in: .month, for: month)! }
-    var startDate: Date { calendar.date(from: calendar.dateComponents([.year, .month], from: month))! }
-    var startDayOfWeek: Int { calendar.component(.weekday, from: startDate) - 1 }
-
-    func weekNumber(for row: Int) -> String {
-        "\(calendar.component(.weekOfYear, from: calendar.date(byAdding: .day, value: row * 7, to: startDate)!))"
-    }
+#Preview {
+    let currentMonth = Calendar.current.date(from: DateComponents(year: 2024, month: 4))!
+    let viewModel = MonthViewModel(month: currentMonth)
+    return MonthView(viewModel: viewModel)
 }

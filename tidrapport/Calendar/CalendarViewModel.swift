@@ -11,8 +11,9 @@ struct CalendarViewModel {
     var year: Int
     var calendar = Calendar.current
 
-    func dateForMonth(_ month: Int) -> Date {
-        calendar.date(from: DateComponents(year: year, month: month)) ?? Date()
+    func monthViewModel(_ monthNumber: Int) -> MonthViewModel {
+        let month = calendar.date(from: DateComponents(year: year, month: monthNumber)) ?? Date()
+        return MonthViewModel(month: month)
     }
     
     func dataForYear(_ year: Int) -> [CalendarData] {

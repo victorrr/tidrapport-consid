@@ -11,14 +11,12 @@ struct CalendarCellView: View {
     @State var isSelected = false
     let text: String
     var type: CellType
-    let selectable: Bool
 
     init(text: String = "",
          type: CellType,
          selectable: Bool = false) {
         self.text = text
         self.type = type
-        self.selectable = selectable
     }
 
     var body: some View {
@@ -28,7 +26,7 @@ struct CalendarCellView: View {
             .background(isSelected ? CellType.selected.bgColor : type.bgColor)
             .padding(4)
             .onTapGesture {
-                if selectable {
+                if type.isSelectable {
                     isSelected = !isSelected
                 }
             }
@@ -39,11 +37,13 @@ struct CalendarCellView: View {
 
 extension CalendarCellView {
 
-    enum CellType {
+    enum CellType: CaseIterable {
         case day
         case week
         case date
         case selected
+        case reported
+        case submitted
 
         var bgColor: Color {
             switch self {
@@ -55,7 +55,47 @@ extension CalendarCellView {
                 return .clear
             case .selected:
                 return .red
+            case .reported:
+                return .yellow
+            case .submitted:
+                return .green
             }
+        }
+
+        var isSelectable: Bool {
+            switch self {
+            case .date, .selected:
+                return true
+            default:
+                return false
+            }
+        }
+
+        var name: String {
+            switch self {
+            case .day:
+                return "Day"
+            case .week:
+                return "Week"
+            case .date:
+                return "Date"
+            case .selected:
+                return "Selected"
+            case .reported:
+                return "Reported"
+            case .submitted:
+                return "Submitted"
+            }
+        }
+    }
+}
+
+// MARK: - Preview
+
+#Preview {
+    Group {
+        ForEach(CalendarCellView.CellType.allCases, id: \.self) { type in
+            CalendarCellView(text: type.name, type: type)
         }
     }
 }

@@ -11,8 +11,8 @@ struct CalendarView: View {
     var viewModel = CalendarViewModel(year: 2024)
 
     var body: some View {
-        List(1..<13, id: \.self) { month in
-            MonthView(month: viewModel.dateForMonth(month))
+        List(1..<13, id: \.self) { monthNumber in
+            MonthView(viewModel: viewModel.monthViewModel(monthNumber))
         }
     }
 }

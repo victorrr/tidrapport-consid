@@ -17,6 +17,7 @@
 		E0BCB0622BB1AE2E00E1CD4B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCB0612BB1AE2E00E1CD4B /* CalendarView.swift */; };
 		E0BCB0642BB1AE3000E1CD4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BCB0632BB1AE3000E1CD4B /* Assets.xcassets */; };
 		E0BCB0672BB1AE3000E1CD4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BCB0662BB1AE3000E1CD4B /* Preview Assets.xcassets */; };
+		E0FAFFB82BBC238800A223E6 /* MonthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		E0BCB0612BB1AE2E00E1CD4B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		E0BCB0632BB1AE3000E1CD4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0BCB0662BB1AE3000E1CD4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				E06BF5712BB447EB007A135D /* CalendarCellView.swift */,
 				E06BF5732BB44854007A135D /* GridStack.swift */,
 				E06BF5752BB44896007A135D /* MonthView.swift */,
+				E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				E048A81B2BB2D071002271C3 /* CalendarViewModel.swift in Sources */,
 				E048A81F2BB2D126002271C3 /* DateIntervalExtension.swift in Sources */,
 				E06BF5762BB44896007A135D /* MonthView.swift in Sources */,
+				E0FAFFB82BBC238800A223E6 /* MonthViewModel.swift in Sources */,
 				E0BCB0622BB1AE2E00E1CD4B /* CalendarView.swift in Sources */,
 				E06BF5742BB44854007A135D /* GridStack.swift in Sources */,
 				E048A8192BB2BE1C002271C3 /* CalendarData.swift in Sources */,
