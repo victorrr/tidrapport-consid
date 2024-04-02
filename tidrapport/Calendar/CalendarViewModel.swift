@@ -9,7 +9,11 @@ import Foundation
 
 struct CalendarViewModel {
     var year: Int
-    var calendar = Calendar.current
+    private var calendar: Calendar {
+        var cal = Calendar(identifier: .gregorian)
+        cal.locale = Locale(identifier: "en_GB") // Monday is considered the first day of the week in the UK
+        return cal
+    }
 
     func monthViewModel(_ monthNumber: Int) -> MonthViewModel {
         let month = calendar.date(from: DateComponents(year: year, month: monthNumber)) ?? Date()

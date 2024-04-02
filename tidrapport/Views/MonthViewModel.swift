@@ -10,7 +10,7 @@ import Foundation
 class MonthViewModel: ObservableObject {
     @Published var month: Date
     let calendar = Calendar.current
-    let daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"]
+    let daysOfWeek = ["M", "Ti", "O", "To", "F", "L", "S"]
 
     init(month: Date) {
         self.month = month
