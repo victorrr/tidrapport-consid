@@ -28,7 +28,8 @@ struct CalendarViewModel {
         let endDate = dateFormatter.date(from: "\(year)/12/31")!
         for date in DateInterval(start: startDate, end: endDate).days {
             let dateString = dateFormatter.string(from: date)
-            let calendarData = CalendarData(date: dateString,
+            let calendarData = CalendarData(id: "0",
+                                            date: dateString,
                                             hours: "",
                                             project: "",
                                             description: "",

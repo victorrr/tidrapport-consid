@@ -18,6 +18,7 @@
 		E0BCB0642BB1AE3000E1CD4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BCB0632BB1AE3000E1CD4B /* Assets.xcassets */; };
 		E0BCB0672BB1AE3000E1CD4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BCB0662BB1AE3000E1CD4B /* Preview Assets.xcassets */; };
 		E0FAFFB82BBC238800A223E6 /* MonthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */; };
+		E0FAFFBB2BBD533700A223E6 /* AddTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFBA2BBD533700A223E6 /* AddTimeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		E0BCB0632BB1AE3000E1CD4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0BCB0662BB1AE3000E1CD4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthViewModel.swift; sourceTree = "<group>"; };
+		E0FAFFBA2BBD533700A223E6 /* AddTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,14 +48,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E048A81C2BB2D09D002271C3 /* Calendar */ = {
+		E048A81C2BB2D09D002271C3 /* CalendarView */ = {
 			isa = PBXGroup;
 			children = (
 				E0BCB0612BB1AE2E00E1CD4B /* CalendarView.swift */,
-				E048A8182BB2BE1C002271C3 /* CalendarData.swift */,
 				E048A81A2BB2D071002271C3 /* CalendarViewModel.swift */,
 			);
-			path = Calendar;
+			path = CalendarView;
 			sourceTree = "<group>";
 		};
 		E048A81D2BB2D103002271C3 /* Extensions */ = {
@@ -64,7 +65,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E06BF5702BB447D1007A135D /* Views */ = {
+		E06BF5702BB447D1007A135D /* Custom views */ = {
 			isa = PBXGroup;
 			children = (
 				E06BF5712BB447EB007A135D /* CalendarCellView.swift */,
@@ -72,7 +73,7 @@
 				E06BF5752BB44896007A135D /* MonthView.swift */,
 				E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */,
 			);
-			path = Views;
+			path = "Custom views";
 			sourceTree = "<group>";
 		};
 		E0BCB0532BB1AE2E00E1CD4B = {
@@ -94,10 +95,12 @@
 		E0BCB05E2BB1AE2E00E1CD4B /* tidrapport */ = {
 			isa = PBXGroup;
 			children = (
-				E06BF5702BB447D1007A135D /* Views */,
+				E048A81C2BB2D09D002271C3 /* CalendarView */,
+				E0FAFFB92BBD52C700A223E6 /* AddTimeView */,
+				E06BF5702BB447D1007A135D /* Custom views */,
+				E0FAFFBC2BBD7B2500A223E6 /* Models */,
 				E048A81D2BB2D103002271C3 /* Extensions */,
 				E0BCB05F2BB1AE2E00E1CD4B /* tidrapportApp.swift */,
-				E048A81C2BB2D09D002271C3 /* Calendar */,
 				E0BCB0632BB1AE3000E1CD4B /* Assets.xcassets */,
 				E0BCB0652BB1AE3000E1CD4B /* Preview Content */,
 			);
@@ -110,6 +113,22 @@
 				E0BCB0662BB1AE3000E1CD4B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E0FAFFB92BBD52C700A223E6 /* AddTimeView */ = {
+			isa = PBXGroup;
+			children = (
+				E0FAFFBA2BBD533700A223E6 /* AddTimeView.swift */,
+			);
+			path = AddTimeView;
+			sourceTree = "<group>";
+		};
+		E0FAFFBC2BBD7B2500A223E6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E048A8182BB2BE1C002271C3 /* CalendarData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E06BF5722BB447EB007A135D /* CalendarCellView.swift in Sources */,
+				E0FAFFBB2BBD533700A223E6 /* AddTimeView.swift in Sources */,
 				E048A81B2BB2D071002271C3 /* CalendarViewModel.swift in Sources */,
 				E048A81F2BB2D126002271C3 /* DateIntervalExtension.swift in Sources */,
 				E06BF5762BB44896007A135D /* MonthView.swift in Sources */,
