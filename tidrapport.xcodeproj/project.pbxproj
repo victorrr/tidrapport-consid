@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E048A8192BB2BE1C002271C3 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A8182BB2BE1C002271C3 /* CalendarData.swift */; };
+		E048A8192BB2BE1C002271C3 /* ProjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A8182BB2BE1C002271C3 /* ProjectData.swift */; };
 		E048A81B2BB2D071002271C3 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A81A2BB2D071002271C3 /* CalendarViewModel.swift */; };
 		E048A81F2BB2D126002271C3 /* DateIntervalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A81E2BB2D126002271C3 /* DateIntervalExtension.swift */; };
 		E06BF5722BB447EB007A135D /* CalendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06BF5712BB447EB007A135D /* CalendarCellView.swift */; };
@@ -19,10 +19,11 @@
 		E0BCB0672BB1AE3000E1CD4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BCB0662BB1AE3000E1CD4B /* Preview Assets.xcassets */; };
 		E0FAFFB82BBC238800A223E6 /* MonthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */; };
 		E0FAFFBB2BBD533700A223E6 /* AddTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFBA2BBD533700A223E6 /* AddTimeView.swift */; };
+		E0FAFFBE2BBD85DA00A223E6 /* DateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFBD2BBD85DA00A223E6 /* DateData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E048A8182BB2BE1C002271C3 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
+		E048A8182BB2BE1C002271C3 /* ProjectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectData.swift; sourceTree = "<group>"; };
 		E048A81A2BB2D071002271C3 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		E048A81E2BB2D126002271C3 /* DateIntervalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalExtension.swift; sourceTree = "<group>"; };
 		E06BF5712BB447EB007A135D /* CalendarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellView.swift; sourceTree = "<group>"; };
@@ -35,6 +36,7 @@
 		E0BCB0662BB1AE3000E1CD4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthViewModel.swift; sourceTree = "<group>"; };
 		E0FAFFBA2BBD533700A223E6 /* AddTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeView.swift; sourceTree = "<group>"; };
+		E0FAFFBD2BBD85DA00A223E6 /* DateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +128,8 @@
 		E0FAFFBC2BBD7B2500A223E6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E048A8182BB2BE1C002271C3 /* CalendarData.swift */,
+				E048A8182BB2BE1C002271C3 /* ProjectData.swift */,
+				E0FAFFBD2BBD85DA00A223E6 /* DateData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,7 +212,8 @@
 				E0FAFFB82BBC238800A223E6 /* MonthViewModel.swift in Sources */,
 				E0BCB0622BB1AE2E00E1CD4B /* CalendarView.swift in Sources */,
 				E06BF5742BB44854007A135D /* GridStack.swift in Sources */,
-				E048A8192BB2BE1C002271C3 /* CalendarData.swift in Sources */,
+				E0FAFFBE2BBD85DA00A223E6 /* DateData.swift in Sources */,
+				E048A8192BB2BE1C002271C3 /* ProjectData.swift in Sources */,
 				E0BCB0602BB1AE2E00E1CD4B /* tidrapportApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

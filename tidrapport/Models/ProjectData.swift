@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CalendarData: Hashable, Identifiable {
+struct ProjectData: Hashable, Identifiable {
     var id: String
     var date: String
     var hours: String
