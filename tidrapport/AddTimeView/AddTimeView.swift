@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct AddTimeView: View {
+    let viewModel: AddTimeViewModel
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Valda datum")
+                .font(.title)
+                .padding(.top, 8)
+            List(viewModel.days, id: \.self) { day in
+                Text(day)
+            }
+        }
     }
 }
 
 #Preview {
-    AddTimeView()
+    let viewModel = AddTimeViewModel(selectedDates: [])
+    return AddTimeView(viewModel: viewModel)
 }

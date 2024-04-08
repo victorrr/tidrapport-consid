@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E00FCE262BC02CA20042DABA /* AddTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00FCE252BC02CA20042DABA /* AddTimeViewModel.swift */; };
 		E048A8192BB2BE1C002271C3 /* ProjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A8182BB2BE1C002271C3 /* ProjectData.swift */; };
 		E048A81B2BB2D071002271C3 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A81A2BB2D071002271C3 /* CalendarViewModel.swift */; };
 		E048A81F2BB2D126002271C3 /* DateIntervalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A81E2BB2D126002271C3 /* DateIntervalExtension.swift */; };
@@ -17,12 +18,14 @@
 		E0BCB0622BB1AE2E00E1CD4B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCB0612BB1AE2E00E1CD4B /* CalendarView.swift */; };
 		E0BCB0642BB1AE3000E1CD4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BCB0632BB1AE3000E1CD4B /* Assets.xcassets */; };
 		E0BCB0672BB1AE3000E1CD4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BCB0662BB1AE3000E1CD4B /* Preview Assets.xcassets */; };
+		E0D1D1132BC0324700ED5D74 /* CalendarCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D1D1122BC0324700ED5D74 /* CalendarCellViewModel.swift */; };
 		E0FAFFB82BBC238800A223E6 /* MonthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */; };
 		E0FAFFBB2BBD533700A223E6 /* AddTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFBA2BBD533700A223E6 /* AddTimeView.swift */; };
 		E0FAFFBE2BBD85DA00A223E6 /* DateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFBD2BBD85DA00A223E6 /* DateData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E00FCE252BC02CA20042DABA /* AddTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeViewModel.swift; sourceTree = "<group>"; };
 		E048A8182BB2BE1C002271C3 /* ProjectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectData.swift; sourceTree = "<group>"; };
 		E048A81A2BB2D071002271C3 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		E048A81E2BB2D126002271C3 /* DateIntervalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalExtension.swift; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 		E0BCB0612BB1AE2E00E1CD4B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		E0BCB0632BB1AE3000E1CD4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0BCB0662BB1AE3000E1CD4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E0D1D1122BC0324700ED5D74 /* CalendarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellViewModel.swift; sourceTree = "<group>"; };
 		E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthViewModel.swift; sourceTree = "<group>"; };
 		E0FAFFBA2BBD533700A223E6 /* AddTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeView.swift; sourceTree = "<group>"; };
 		E0FAFFBD2BBD85DA00A223E6 /* DateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateData.swift; sourceTree = "<group>"; };
@@ -70,10 +74,7 @@
 		E06BF5702BB447D1007A135D /* Custom views */ = {
 			isa = PBXGroup;
 			children = (
-				E06BF5712BB447EB007A135D /* CalendarCellView.swift */,
 				E06BF5732BB44854007A135D /* GridStack.swift */,
-				E06BF5752BB44896007A135D /* MonthView.swift */,
-				E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */,
 			);
 			path = "Custom views";
 			sourceTree = "<group>";
@@ -97,7 +98,7 @@
 		E0BCB05E2BB1AE2E00E1CD4B /* tidrapport */ = {
 			isa = PBXGroup;
 			children = (
-				E048A81C2BB2D09D002271C3 /* CalendarView */,
+				E0D1D1142BC0326600ED5D74 /* Calendar */,
 				E0FAFFB92BBD52C700A223E6 /* AddTimeView */,
 				E06BF5702BB447D1007A135D /* Custom views */,
 				E0FAFFBC2BBD7B2500A223E6 /* Models */,
@@ -117,10 +118,39 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E0D1D1142BC0326600ED5D74 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				E0D1D1162BC0328300ED5D74 /* CalendarCellView */,
+				E0D1D1152BC0327700ED5D74 /* MonthView */,
+				E048A81C2BB2D09D002271C3 /* CalendarView */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		E0D1D1152BC0327700ED5D74 /* MonthView */ = {
+			isa = PBXGroup;
+			children = (
+				E06BF5752BB44896007A135D /* MonthView.swift */,
+				E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */,
+			);
+			path = MonthView;
+			sourceTree = "<group>";
+		};
+		E0D1D1162BC0328300ED5D74 /* CalendarCellView */ = {
+			isa = PBXGroup;
+			children = (
+				E06BF5712BB447EB007A135D /* CalendarCellView.swift */,
+				E0D1D1122BC0324700ED5D74 /* CalendarCellViewModel.swift */,
+			);
+			path = CalendarCellView;
+			sourceTree = "<group>";
+		};
 		E0FAFFB92BBD52C700A223E6 /* AddTimeView */ = {
 			isa = PBXGroup;
 			children = (
 				E0FAFFBA2BBD533700A223E6 /* AddTimeView.swift */,
+				E00FCE252BC02CA20042DABA /* AddTimeViewModel.swift */,
 			);
 			path = AddTimeView;
 			sourceTree = "<group>";
@@ -209,10 +239,12 @@
 				E048A81B2BB2D071002271C3 /* CalendarViewModel.swift in Sources */,
 				E048A81F2BB2D126002271C3 /* DateIntervalExtension.swift in Sources */,
 				E06BF5762BB44896007A135D /* MonthView.swift in Sources */,
+				E0D1D1132BC0324700ED5D74 /* CalendarCellViewModel.swift in Sources */,
 				E0FAFFB82BBC238800A223E6 /* MonthViewModel.swift in Sources */,
 				E0BCB0622BB1AE2E00E1CD4B /* CalendarView.swift in Sources */,
 				E06BF5742BB44854007A135D /* GridStack.swift in Sources */,
 				E0FAFFBE2BBD85DA00A223E6 /* DateData.swift in Sources */,
+				E00FCE262BC02CA20042DABA /* AddTimeViewModel.swift in Sources */,
 				E048A8192BB2BE1C002271C3 /* ProjectData.swift in Sources */,
 				E0BCB0602BB1AE2E00E1CD4B /* tidrapportApp.swift in Sources */,
 			);

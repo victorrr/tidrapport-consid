@@ -1,41 +1,28 @@
 //
-//  CalendarCellView.swift
+//  CalendarCellViewModel.swift
 //  tidrapport
 //
-//  Created by Victor Rendon on 2024-03-27.
+//  Created by Victor Rendon on 2024-04-05.
 //
 
+import Foundation
 import SwiftUI
 
-struct CalendarCellView: View {
-    @State var isSelected = false
+final class CalendarCellViewModel: ObservableObject {
+    @Published var isSelected = false
     let text: String?
-    var type: CellType
+    let type: CellType
 
     init(text: String? = nil,
-         type: CellType,
-         selectable: Bool = false) {
+         type: CellType) {
         self.text = text
         self.type = type
     }
-
-    var body: some View {
-        Text(text ?? "")
-            .multilineTextAlignment(.leading)
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .background(isSelected ? CellType.selected.bgColor : type.bgColor)
-            .padding(4)
-            .onTapGesture {
-                if type.isSelectable {
-                    isSelected = !isSelected
-                }
-            }
-    }
 }
 
-// MARK: - DateType
+// MARK: - CellType
 
-extension CalendarCellView {
+extension CalendarCellViewModel {
 
     enum CellType: CaseIterable {
         case day
@@ -89,16 +76,6 @@ extension CalendarCellView {
             case .submitted:
                 return "Submitted"
             }
-        }
-    }
-}
-
-// MARK: - Preview
-
-#Preview {
-    Group {
-        ForEach(CalendarCellView.CellType.allCases, id: \.self) { type in
-            CalendarCellView(text: type.name, type: type)
         }
     }
 }

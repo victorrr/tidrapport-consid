@@ -15,6 +15,9 @@ final class CalendarViewModel {
         self.year = year
     }
 
+    var selectedDates: [Date] {
+        monthViewModels.flatMap { $0.selectedDates }
+    }
     func monthViewModel(_ monthNumber: Int) -> MonthViewModel {
         monthViewModels[monthNumber-1]
     }

@@ -33,7 +33,8 @@ struct CalendarView: View {
                     .position(x: geometry.size.width - 80, 
                               y: geometry.size.height - 80)
                     .navigationDestination(isPresented: $isButtonPressed) {
-                        AddTimeView()
+                        let viewModel = AddTimeViewModel(selectedDates: viewModel.selectedDates)
+                        AddTimeView(viewModel: viewModel)
                     }
                 }
             }
