@@ -57,5 +57,6 @@ private extension MonthView {
 #Preview {
     let currentMonth = Calendar.current.date(from: DateComponents(year: 2024, month: 4))!
     let viewModel = MonthViewModel(month: currentMonth)
+    viewModel.addCellViewModels()
     return MonthView(viewModel: viewModel)
 }

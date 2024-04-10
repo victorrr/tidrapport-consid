@@ -26,7 +26,7 @@ final class MonthViewModel: ObservableObject {
     func addCellViewModels() {
         (0..<rows)
             .forEach { row in
-                (0..<7).forEach { col in
+                (0..<8).forEach { col in
                     let key = GridKey(row: row, col: col)
                     cellViewModels[key] = createCellViewModel(gridKey: key)
                 }
