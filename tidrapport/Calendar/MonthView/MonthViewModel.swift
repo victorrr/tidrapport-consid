@@ -7,14 +7,30 @@
 
 import Foundation
 
+struct GridKey: Hashable {
+    let row: Int
+    let col: Int
+}
+
 final class MonthViewModel: ObservableObject {
-    var month: Date
-    let calendar = Calendar.current
+    @Published var selectedDates: [Date] = []
     let daysOfWeek = ["M", "Ti", "O", "To", "F", "L", "S"]
-    var selectedDates: [Date] = []
+    var cellViewModels: [GridKey: CalendarCellViewModel] = [:]
+    private var month: Date
+    private let calendar = Calendar.current
 
     init(month: Date) {
         self.month = month
+    }
+
+    func addCellViewModels() {
+        (0..<rows)
+            .forEach { row in
+                (0..<7).forEach { col in
+                    let key = GridKey(row: row, col: col)
+                    cellViewModels[key] = createCellViewModel(gridKey: key)
+                }
+            }
     }
 
     var range: Range<Int> {
@@ -51,5 +67,33 @@ final class MonthViewModel: ObservableObject {
 
     func weekNumber(for row: Int) -> Int {
         calendar.component(.weekOfYear, from: calendar.date(byAdding: .day, value: row * 7, to: startDate)!)
+    }
+}
+
+extension MonthViewModel {
+
+    var weekViewModel: CalendarCellViewModel {
+        CalendarCellViewModel(text: "V", type: .week)
+    }
+
+    var daysOfWeekViewModel: [CalendarCellViewModel] {
+        daysOfWeek.map { CalendarCellViewModel(text: $0, type: .day) }
+    }
+
+    func createCellViewModel(gridKey: GridKey) -> CalendarCellViewModel {
+        let isWeekColumn = (gridKey.col == 0)
+        guard !isWeekColumn else {
+            return CalendarCellViewModel(text: "\(weekNumber(for: gridKey.row))", 
+                                         type: .week)
+        }
+        let isAfterMonthStartDay = gridKey.row * 7 + gridKey.col >= startDayOfWeek
+        let day = day(for: gridKey.row, col: gridKey.col)
+        let isBeforeMonthEndDay = day <= range.count
+        guard isAfterMonthStartDay, isBeforeMonthEndDay else {
+            return CalendarCellViewModel(type: .emptyDate)
+        }
+        return CalendarCellViewModel(text: dateString(for: day), 
+                                     type: .date,
+                                     date: date(for: day))
     }
 }

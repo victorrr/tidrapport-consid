@@ -12,11 +12,27 @@ final class CalendarCellViewModel: ObservableObject {
     @Published var isSelected = false
     let text: String?
     let type: CellType
+    let date: Date?
 
     init(text: String? = nil,
-         type: CellType) {
+         type: CellType,
+         date: Date? = nil) {
         self.text = text
         self.type = type
+        self.date = date
+    }
+}
+
+extension CalendarCellViewModel: Hashable {
+
+    static func == (lhs: CalendarCellViewModel, rhs: CalendarCellViewModel) -> Bool {
+        lhs.text == rhs.text && 
+        lhs.type == rhs.type
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(text)
+        hasher.combine(type)
     }
 }
 

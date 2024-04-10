@@ -16,13 +16,13 @@ struct MonthView: View {
                 .font(.title)
                 .padding(.top, 8)
             HStack {
-                CalendarCellView(viewModel: CalendarCellViewModel(text: "V", type: .week))
-                ForEach(0..<7, id: \.self) { index in
-                    CalendarCellView(viewModel: CalendarCellViewModel(text: viewModel.daysOfWeek[index], type: .day))
+                CalendarCellView(viewModel: viewModel.weekViewModel)
+                ForEach(viewModel.daysOfWeekViewModel, id: \.self) { day in
+                    CalendarCellView(viewModel: day)
                 }
             }
             GridStack(rows: viewModel.rows, columns: 8) { row, col in
-                createCalendarCell(row: row, col: col)
+                calendarCell(row: row, col: col)
             }
         }
     }
@@ -32,31 +32,23 @@ struct MonthView: View {
 
 private extension MonthView {
 
-    func createCalendarCell(row: Int, col: Int) -> some View {
-        let isWeekColumn = (col == 0)
-        guard !isWeekColumn else {
-            return AnyView(CalendarCellView(viewModel: CalendarCellViewModel(text: "\(viewModel.weekNumber(for: row))", type: .week)))
+    func calendarCell(row: Int, col: Int) -> some View {
+        guard let cellViewModel = viewModel.cellViewModels[GridKey(row: row, col: col)] else {
+            return AnyView(EmptyView())
         }
-        guard
-            row * 7 + col >= viewModel.startDayOfWeek else {
-            return AnyView(CalendarCellView(viewModel: CalendarCellViewModel(type: .emptyDate)))
+        guard case .day = cellViewModel.type else {
+            return AnyView(CalendarCellView(viewModel: cellViewModel))
         }
-        let day = viewModel.day(for: row, col: col)
-        guard day <= viewModel.range.count else {
-            return AnyView(CalendarCellView(viewModel: CalendarCellViewModel(type: .emptyDate)))
-        }
-        return AnyView(CalendarCellView(viewModel: CalendarCellViewModel(text: viewModel.dateString(for: day), type: .date))
-            .onTapGesture {
-                let selectedDate = viewModel.date(for: day)
-                if let index = viewModel.selectedDates.firstIndex(of: selectedDate) {
-                    // Datumet är redan valt, så ta bort det från arrayen
-                    viewModel.selectedDates.remove(at: index)
-                } else {
-                    // Datumet är inte valt, så lägg till det i arrayen
-                    viewModel.selectedDates.append(selectedDate)
-                }
+        return AnyView(CalendarCellView(viewModel: cellViewModel).onTapGesture {
+            guard let selectedDate = cellViewModel.date else { return }
+            if let index = viewModel.selectedDates.firstIndex(of: selectedDate) {
+                // Datumet är redan valt, så ta bort det från arrayen
+                viewModel.selectedDates.remove(at: index)
+            } else {
+                // Datumet är inte valt, så lägg till det i arrayen
+                viewModel.selectedDates.append(selectedDate)
             }
-        )
+        })
     }
 }
 

@@ -18,6 +18,7 @@ final class CalendarViewModel {
     var selectedDates: [Date] {
         monthViewModels.flatMap { $0.selectedDates }
     }
+
     func monthViewModel(_ monthNumber: Int) -> MonthViewModel {
         monthViewModels[monthNumber-1]
     }
@@ -54,6 +55,10 @@ private extension CalendarViewModel {
     }
 
     func createMonthViewModel(_ monthNumber: Int) -> MonthViewModel? {
-        calendar.date(from: DateComponents(year: year, month: monthNumber)).map { MonthViewModel(month: $0) }
+        calendar.date(from: DateComponents(year: year, month: monthNumber)).map {
+            let vm = MonthViewModel(month: $0)
+            vm.addCellViewModels()
+            return vm
+        }
     }
 }
