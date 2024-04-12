@@ -41,7 +41,7 @@ extension CalendarCellViewModel: Hashable {
 extension CalendarCellViewModel {
 
     enum CellType: CaseIterable {
-        case day
+        case weekDayName
         case week
         case date
         case emptyDate
@@ -51,7 +51,7 @@ extension CalendarCellViewModel {
 
         var bgColor: Color {
             switch self {
-            case .day:
+            case .weekDayName:
                 return .brown
             case .week:
                 return .gray
@@ -77,8 +77,8 @@ extension CalendarCellViewModel {
 
         var name: String {
             switch self {
-            case .day:
-                return "Day"
+            case .weekDayName:
+                return "Week day name"
             case .week:
                 return "Week"
             case .date:

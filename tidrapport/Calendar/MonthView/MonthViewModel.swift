@@ -77,7 +77,7 @@ extension MonthViewModel {
     }
 
     var daysOfWeekViewModel: [CalendarCellViewModel] {
-        daysOfWeek.map { CalendarCellViewModel(text: $0, type: .day) }
+        daysOfWeek.map { CalendarCellViewModel(text: $0, type: .weekDayName) }
     }
 
     func createCellViewModel(gridKey: GridKey) -> CalendarCellViewModel {
