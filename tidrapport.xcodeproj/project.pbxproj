@@ -19,6 +19,7 @@
 		E0BCB0642BB1AE3000E1CD4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BCB0632BB1AE3000E1CD4B /* Assets.xcassets */; };
 		E0BCB0672BB1AE3000E1CD4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BCB0662BB1AE3000E1CD4B /* Preview Assets.xcassets */; };
 		E0D1D1132BC0324700ED5D74 /* CalendarCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D1D1122BC0324700ED5D74 /* CalendarCellViewModel.swift */; };
+		E0F4018F2BCD54420079491E /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4018E2BCD54420079491E /* SubmitView.swift */; };
 		E0FAFFB82BBC238800A223E6 /* MonthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */; };
 		E0FAFFBB2BBD533700A223E6 /* AddTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFBA2BBD533700A223E6 /* AddTimeView.swift */; };
 		E0FAFFBE2BBD85DA00A223E6 /* DateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFBD2BBD85DA00A223E6 /* DateData.swift */; };
@@ -38,6 +39,7 @@
 		E0BCB0632BB1AE3000E1CD4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0BCB0662BB1AE3000E1CD4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E0D1D1122BC0324700ED5D74 /* CalendarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellViewModel.swift; sourceTree = "<group>"; };
+		E0F4018E2BCD54420079491E /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
 		E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthViewModel.swift; sourceTree = "<group>"; };
 		E0FAFFBA2BBD533700A223E6 /* AddTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeView.swift; sourceTree = "<group>"; };
 		E0FAFFBD2BBD85DA00A223E6 /* DateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateData.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		E0BCB05E2BB1AE2E00E1CD4B /* tidrapport */ = {
 			isa = PBXGroup;
 			children = (
+				E0F4018D2BCD542A0079491E /* SubmitView */,
 				E0D1D1142BC0326600ED5D74 /* Calendar */,
 				E0FAFFB92BBD52C700A223E6 /* AddTimeView */,
 				E06BF5702BB447D1007A135D /* Custom views */,
@@ -144,6 +147,14 @@
 				E0D1D1122BC0324700ED5D74 /* CalendarCellViewModel.swift */,
 			);
 			path = CalendarCellView;
+			sourceTree = "<group>";
+		};
+		E0F4018D2BCD542A0079491E /* SubmitView */ = {
+			isa = PBXGroup;
+			children = (
+				E0F4018E2BCD54420079491E /* SubmitView.swift */,
+			);
+			path = SubmitView;
 			sourceTree = "<group>";
 		};
 		E0FAFFB92BBD52C700A223E6 /* AddTimeView */ = {
@@ -246,6 +257,7 @@
 				E0FAFFBE2BBD85DA00A223E6 /* DateData.swift in Sources */,
 				E00FCE262BC02CA20042DABA /* AddTimeViewModel.swift in Sources */,
 				E048A8192BB2BE1C002271C3 /* ProjectData.swift in Sources */,
+				E0F4018F2BCD54420079491E /* SubmitView.swift in Sources */,
 				E0BCB0602BB1AE2E00E1CD4B /* tidrapportApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

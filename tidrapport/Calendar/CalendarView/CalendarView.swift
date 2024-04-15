@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CalendarView: View {
-    var viewModel = CalendarViewModel(year: 2024)
+    var viewModel = CalendarViewModel()
     @State private var isButtonPressed: Bool = false
 
     var body: some View {

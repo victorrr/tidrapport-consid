@@ -8,11 +8,11 @@
 import Foundation
 
 final class CalendarViewModel {
-    var year: Int
+    private var year: Int
     lazy var monthViewModels: [MonthViewModel] = (1..<13).compactMap(createMonthViewModel)
 
-    init(year: Int) {
-        self.year = year
+    init(year: Int? = nil) {
+        self.year = year ?? Calendar.current.component(.year, from: Date())
     }
 
     var selectedDates: [Date] {
@@ -21,26 +21,6 @@ final class CalendarViewModel {
 
     func monthViewModel(_ monthNumber: Int) -> MonthViewModel {
         monthViewModels[monthNumber-1]
-    }
-
-    func dataForYear(_ year: Int) -> [ProjectData] {
-        var calendarDataList = [ProjectData]()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        let startDate = dateFormatter.date(from: "\(year)/01/01")!
-        let endDate = dateFormatter.date(from: "\(year)/12/31")!
-        for date in DateInterval(start: startDate, end: endDate).days {
-            let dateString = dateFormatter.string(from: date)
-            let calendarData = ProjectData(id: "0",
-                                            date: dateString,
-                                            hours: "",
-                                            project: "",
-                                            description: "",
-                                            isBillable: false,
-                                            isSubmitted: false)
-            calendarDataList.append(calendarData)
-        }
-        return calendarDataList
     }
 }
 
