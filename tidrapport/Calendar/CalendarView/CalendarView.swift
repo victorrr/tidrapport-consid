@@ -18,27 +18,40 @@ struct CalendarView: View {
                     List(1..<13, id: \.self) { monthNumber in
                         MonthView(viewModel: viewModel.monthViewModel(monthNumber))
                     }
-
-                    Button(action: {
-                        isButtonPressed = true
-                    }) {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .frame(width: 60, height: 60)
-                            .padding()
-                    }
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .clipShape(Circle())
-                    .position(x: geometry.size.width - 80, 
-                              y: geometry.size.height - 80)
-                    .navigationDestination(isPresented: $isButtonPressed) {
-                        let viewModel = AddTimeViewModel(selectedDates: viewModel.selectedDates)
-                        AddTimeView(viewModel: viewModel)
-                    }
+                    addTimesButton(x: geometry.size.width - 80, 
+                                   y: geometry.size.height - 80)
                 }
+                .navigationDestination(for: Int.self, destination: { dates in
+                    addTimeView
+                })
             }
         }
+    }
+}
+
+// MARK: - Private
+
+private extension CalendarView {
+
+    var addTimeView: some View {
+        let addTimeViewModel = AddTimeViewModel(selectedDates: viewModel.selectedDates)
+        return AddTimeView(viewModel: addTimeViewModel)
+            .onDisappear {
+                isButtonPressed = false
+            }
+    }
+
+    func addTimesButton(x: CGFloat, y: CGFloat) -> some View {
+        NavigationLink(value: 0) {
+            Image(systemName: "plus.circle.fill")
+                .resizable()
+                .frame(width: 40, height: 40)
+                .padding()
+        }
+        .background(Color.blue)
+        .foregroundColor(.white)
+        .clipShape(Circle())
+        .position(x: x, y: y)
     }
 }
 
