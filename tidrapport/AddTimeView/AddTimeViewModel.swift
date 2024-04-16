@@ -10,7 +10,7 @@ import Foundation
 final class AddTimeViewModel: ObservableObject {
     let selectedDates: [Date]
     @Published var project: String = ""
-    @Published var hours: Float = 0
+    @Published var hours: Float = 8
     @Published var article: String = ""
     @Published var customer: String = ""
     @Published var activity: String = ""

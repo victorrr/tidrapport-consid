@@ -12,28 +12,30 @@ struct AddTimeView: View {
 
     var body: some View {
         VStack {
-            Text("Valda datum")
+            Text("Lägg till nya tider")
                 .font(.title)
                 .padding(.top, 8)
-            List(viewModel.days, id: \.self) { day in
-                Text(day)
-            }
             Form {
-                Section(header: Text("Project Information")) {
-                    TextField("Hours", value: $viewModel.hours, formatter: NumberFormatter())
-                    TextField("Article", text: $viewModel.article)
-                    TextField("Customer", text: $viewModel.customer)
-                    TextField("Project Name", text: $viewModel.project)
-                    TextField("Activity", text: $viewModel.activity)
-                    TextField("Errand Number", text: $viewModel.errandNumber)
-                    TextField("Description", text: $viewModel.description)
+                Section(header: Text("Valda datum")) {
+                    List(viewModel.days, id: \.self) { day in
+                        Text(day)
+                    }
+                }
+                Section {
+                    TextField("Timmar", value: $viewModel.hours, formatter: NumberFormatter())
+                    TextField("Artikel", text: $viewModel.article)
+                    TextField("Kund", text: $viewModel.customer)
+                    TextField("Projekt", text: $viewModel.project)
+                    TextField("Aktivitet", text: $viewModel.activity)
+                    TextField("Ärendenummer", text: $viewModel.errandNumber)
+                    TextField("Beskrivning", text: $viewModel.description)
                 }
                 NavigationLink {
                     viewModel.saveProjectData()
                     return SubmitView(projectData: viewModel.projectData,
                                       dates: viewModel.selectedDates)
                 } label: {
-                    Text("Submit")
+                    Text("Spara")
                 }
             }
         }
@@ -41,6 +43,6 @@ struct AddTimeView: View {
 }
 
 #Preview {
-    let viewModel = AddTimeViewModel(selectedDates: [])
+    let viewModel = AddTimeViewModel(selectedDates: [Date()])
     return AddTimeView(viewModel: viewModel)
 }
