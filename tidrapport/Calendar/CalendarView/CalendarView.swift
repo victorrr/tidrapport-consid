@@ -35,6 +35,7 @@ private extension CalendarView {
 
     var addTimeView: some View {
         let addTimeViewModel = AddTimeViewModel(selectedDates: viewModel.selectedDates)
+        addTimeViewModel.prefillProjectData()
         return AddTimeView(viewModel: addTimeViewModel)
             .onDisappear {
                 isButtonPressed = false

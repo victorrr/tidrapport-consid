@@ -23,7 +23,7 @@ struct AddTimeView: View {
                     TextField("Hours", value: $viewModel.hours, formatter: NumberFormatter())
                     TextField("Article", text: $viewModel.article)
                     TextField("Customer", text: $viewModel.customer)
-                    TextField("Project Name", text: $viewModel.projectName)
+                    TextField("Project Name", text: $viewModel.project)
                     TextField("Activity", text: $viewModel.activity)
                     TextField("Errand Number", text: $viewModel.errandNumber)
                     TextField("Description", text: $viewModel.description)
@@ -31,15 +31,12 @@ struct AddTimeView: View {
                 NavigationLink {
                     viewModel.saveProjectData()
                     return SubmitView(projectData: viewModel.projectData,
-                               dates: viewModel.selectedDates)
+                                      dates: viewModel.selectedDates)
                 } label: {
                     Text("Submit")
                 }
             }
         }
-        .onAppear(perform: {
-            viewModel.prefillProjectData()
-        })
     }
 }
 

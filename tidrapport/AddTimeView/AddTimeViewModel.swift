@@ -9,7 +9,7 @@ import Foundation
 
 final class AddTimeViewModel: ObservableObject {
     let selectedDates: [Date]
-    @Published var projectName: String = ""
+    @Published var project: String = ""
     @Published var hours: Float = 0
     @Published var article: String = ""
     @Published var customer: String = ""
@@ -25,7 +25,7 @@ final class AddTimeViewModel: ObservableObject {
         hours = lastHours
         article = lastArticle
         customer = lastCustomer
-        projectName = lastProjectName
+        project = lastProject
         activity = lastActivity
         errandNumber = lastErrandNumber
         description = lastDescription
@@ -37,7 +37,7 @@ final class AddTimeViewModel: ObservableObject {
                     hours: hours,
                     article: article,
                     customer: customer,
-                    project: projectName,
+                    project: project,
                     activity: activity,
                     errandNumber: errandNumber,
                     description: description,
@@ -52,53 +52,68 @@ final class AddTimeViewModel: ObservableObject {
     }
 
     func saveProjectData() {
-        UserDefaults.standard.set(projectName, forKey: "lastProjectName")
-        UserDefaults.standard.set(hours, forKey: "lastHours")
-        UserDefaults.standard.set(article, forKey: "lastArticle")
-        UserDefaults.standard.set(customer, forKey: "lastCustomer")
-        UserDefaults.standard.set(activity, forKey: "lastActivity")
-        UserDefaults.standard.set(errandNumber, forKey: "lastErrandNumber")
-        UserDefaults.standard.set(description, forKey: "lastDescription")
+        UserDefaults.standard.setValue(project, forKey: Key.lastProject)
+        UserDefaults.standard.setValue(hours, forKey: Key.lastHours)
+        UserDefaults.standard.setValue(article, forKey: Key.lastArticle)
+        UserDefaults.standard.setValue(customer, forKey: Key.lastCustomer)
+        UserDefaults.standard.setValue(activity, forKey: Key.lastActivity)
+        UserDefaults.standard.setValue(errandNumber, forKey: Key.lastErrandNumber)
+        UserDefaults.standard.setValue(description, forKey: Key.lastDescription)
     }
 }
 
 private extension AddTimeViewModel {
 
-    var lastProjectName: String {
-        UserDefaults.standard.string(forKey: "lastProjectName") ?? ""
+    var lastProject: String {
+        UserDefaults.standard.string(forKey: Key.lastProject) ?? ""
     }
 
     var lastHours: Float {
-        UserDefaults.standard.float(forKey: "lastHours")
+        UserDefaults.standard.float(forKey: Key.lastHours)
     }
 
     var lastArticle: String {
-        UserDefaults.standard.string(forKey: "lastArticle") ?? ""
+        UserDefaults.standard.string(forKey: Key.lastArticle) ?? ""
     }
 
     var lastCustomer: String {
-        UserDefaults.standard.string(forKey: "lastCustomer") ?? ""
+        UserDefaults.standard.string(forKey: Key.lastCustomer) ?? ""
     }
 
     var lastActivity: String {
-        UserDefaults.standard.string(forKey: "lastActivity") ?? ""
+        UserDefaults.standard.string(forKey: Key.lastActivity) ?? ""
     }
 
     var lastErrandNumber: String {
-        UserDefaults.standard.string(forKey: "lastErrandNumber") ?? ""
+        UserDefaults.standard.string(forKey: Key.lastErrandNumber) ?? ""
     }
 
     var lastDescription: String {
-        UserDefaults.standard.string(forKey: "lastDescription") ?? ""
+        UserDefaults.standard.string(forKey: Key.lastDescription) ?? ""
     }
 
     func clearProjectData() {
-        UserDefaults.standard.removeObject(forKey: "lastProjectName")
-        UserDefaults.standard.removeObject(forKey: "lastHours")
-        UserDefaults.standard.removeObject(forKey: "lastArticle")
-        UserDefaults.standard.removeObject(forKey: "lastCustomer")
-        UserDefaults.standard.removeObject(forKey: "lastActivity")
-        UserDefaults.standard.removeObject(forKey: "lastErrandNumber")
-        UserDefaults.standard.removeObject(forKey: "lastDescription")
+        UserDefaults.standard.removeObject(forKey: Key.lastProject)
+        UserDefaults.standard.removeObject(forKey: Key.lastHours)
+        UserDefaults.standard.removeObject(forKey: Key.lastArticle)
+        UserDefaults.standard.removeObject(forKey: Key.lastCustomer)
+        UserDefaults.standard.removeObject(forKey: Key.lastActivity)
+        UserDefaults.standard.removeObject(forKey: Key.lastErrandNumber)
+        UserDefaults.standard.removeObject(forKey: Key.lastDescription)
+    }
+}
+
+// MARK: - Key
+
+private extension AddTimeViewModel {
+
+    struct Key {
+        static let lastProject = "lastProject"
+        static let lastHours = "lastHours"
+        static let lastArticle = "lastArticle"
+        static let lastCustomer = "lastCustomer"
+        static let lastActivity = "lastActivity"
+        static let lastErrandNumber = "lastErrandNumber"
+        static let lastDescription = "lastDescription"
     }
 }

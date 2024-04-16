@@ -39,32 +39,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1942CB81-8C63-4B09-BC60-3C8042F817A4"
-            shouldBeEnabled = "Yes"
+            uuid = "D4F44BC1-04E1-40AB-9E4F-3AAD0F6B55C1"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tidrapport/AddTimeView/AddTimeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "prefillProjectData()"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "saveProjectData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F43062DF-DBD4-485B-9A40-5AEB05ABF433"
-            shouldBeEnabled = "Yes"
+            uuid = "B3439471-A1C4-4984-BC63-0B828D9B2313"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tidrapport/AddTimeView/AddTimeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "prefillProjectData()"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "saveProjectData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
