@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CalendarView: View {
-    var viewModel = CalendarViewModel()
-    @State private var isPresentingAddTimeView: Bool = false
+    @ObservedObject var viewModel = CalendarViewModel()
+    @State private var isPresentingAddTimeView = false
 
     var body: some View {
         GeometryReader { geometry in
@@ -24,6 +24,9 @@ struct CalendarView: View {
                 addTimeView
             }
         }
+        .sheet(isPresented: $viewModel.isPresentingLoginView, content: {
+            loginView
+        })
     }
 }
 
@@ -34,10 +37,14 @@ private extension CalendarView {
     var addTimeView: some View {
         let addTimeViewModel = AddTimeViewModel(selectedDates: viewModel.selectedDates)
         addTimeViewModel.prefillProjectData()
-        return AddTimeView(viewModel: addTimeViewModel)
+        return AddTimeView(viewModel: addTimeViewModel, successAction: viewModel.refresh)
             .onDisappear {
                 isPresentingAddTimeView = false
             }
+    }
+
+    var loginView: some View {
+        LoginView(viewModel: LoginViewModel())
     }
 
     func addTimesButton(x: CGFloat, y: CGFloat) -> some View {

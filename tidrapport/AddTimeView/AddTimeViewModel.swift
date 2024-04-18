@@ -44,7 +44,11 @@ final class AddTimeViewModel: ObservableObject {
                     isSubmitted: false)
     }
 
-    var days: [String] {
+    var submitViewModel: SubmitViewModel {
+        SubmitViewModel(projectData: projectData, dates: selectedDates)
+    }
+
+    var selectedDateStrings: [String] {
         selectedDates.map {
             let day = Calendar.current.component(.day, from: $0)
             let month = Calendar.current.component(.month, from: $0)

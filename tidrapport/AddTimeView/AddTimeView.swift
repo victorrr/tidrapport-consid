@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddTimeView: View {
     @ObservedObject var viewModel: AddTimeViewModel
+    var successAction: () -> Void
     @State private var path: NavigationPath = NavigationPath()
     @Environment(\.presentationMode) var presentationMode
 
@@ -17,23 +18,28 @@ struct AddTimeView: View {
             VStack {
                 Form {
                     Section(header: Text("Valda datum")) {
-                        List(viewModel.days, id: \.self) { day in
-                            Text(day)
+                        List(viewModel.selectedDateStrings, id: \.self) { dateString in
+                            Text(dateString)
                         }
                     }
                     Section {
-                        TextField("Timmar", value: $viewModel.hours, formatter: NumberFormatter())
-                        TextField("Artikel", text: $viewModel.article)
-                        TextField("Kund", text: $viewModel.customer)
-                        TextField("Projekt", text: $viewModel.project)
-                        TextField("Aktivitet", text: $viewModel.activity)
-                        TextField("Ärendenummer", text: $viewModel.errandNumber)
-                        TextField("Beskrivning", text: $viewModel.description)
+                        VStack(alignment: .leading) {
+                            Text("Timmar").fontWeight(.bold)
+                            TextField("", value: $viewModel.hours, formatter: NumberFormatter())
+                        }
+                        LabelTextField(label: "Artikel", text: $viewModel.article)
+                        LabelTextField(label: "Kund", text: $viewModel.customer)
+                        LabelTextField(label: "Projekt", text: $viewModel.project)
+                        LabelTextField(label: "Aktivitet", text: $viewModel.activity)
+                        LabelTextField(label: "Ärendenummer", text: $viewModel.errandNumber)
+                        LabelTextField(label: "Beskrivning", text: $viewModel.description)
                     }
                     NavigationLink {
                         viewModel.saveProjectData()
-                        return SubmitView(projectData: viewModel.projectData,
-                                          dates: viewModel.selectedDates)
+                        return SubmitView(viewModel: viewModel.submitViewModel) {
+                            successAction()
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     } label: {
                         Text("Spara")
                     }
@@ -55,5 +61,5 @@ struct AddTimeView: View {
 
 #Preview {
     let viewModel = AddTimeViewModel(selectedDates: [Date()])
-    return AddTimeView(viewModel: viewModel)
+    return AddTimeView(viewModel: viewModel, successAction: {})
 }

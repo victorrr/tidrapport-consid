@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class CalendarViewModel {
+final class CalendarViewModel: ObservableObject {
+    @Published var isPresentingLoginView = true
     private var year: Int
     lazy var monthViewModels: [MonthViewModel] = (1..<13).compactMap(createMonthViewModel)
 
@@ -21,6 +22,10 @@ final class CalendarViewModel {
 
     func monthViewModel(_ monthNumber: Int) -> MonthViewModel {
         monthViewModels[monthNumber-1]
+    }
+
+    func refresh() {
+
     }
 }
 

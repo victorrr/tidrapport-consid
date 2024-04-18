@@ -8,16 +8,48 @@
 import SwiftUI
 
 struct SubmitView: View {
-    let projectData: ProjectData
-    let dates: [Date]
+    @ObservedObject var viewModel: SubmitViewModel
+    var closeAction: (() -> Void)?
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            if viewModel.isLoading {
+                ProgressView()
+            } else if viewModel.isSuccessful {
+                Image(systemName: "checkmark.circle.fill")
+                    .foregroundColor(.green)
+                Button {
+                    closeAction?()
+                } label: {
+                    Text("Klar")
+                        .padding()
+                }
+            } else if viewModel.isError {
+                Image(systemName: "xmark.octagon.fill")
+                    .foregroundColor(.red)
+                Button {
+                    closeAction?()
+                } label: {
+                    Text("Försök igen")
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            viewModel.submitData()
+        }
     }
 }
 
+// MARK: - Private
+
+private extension SubmitView {
+
+
+}
+
 #Preview {
-    let projectData = ProjectData(id: "1", 
+    let projectData = ProjectData(id: "1",
                                   hours: 8,
                                   article: "",
                                   customer: "",
@@ -26,5 +58,6 @@ struct SubmitView: View {
                                   errandNumber: "",
                                   description: "",
                                   isSubmitted: false)
-    return SubmitView(projectData: projectData, dates: [Date()])
+    let viewModel = SubmitViewModel(projectData: projectData, dates: [Date()])
+    return SubmitView(viewModel: viewModel)
 }
