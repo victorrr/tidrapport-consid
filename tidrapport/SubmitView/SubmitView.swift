@@ -14,24 +14,11 @@ struct SubmitView: View {
     var body: some View {
         VStack {
             if viewModel.isLoading {
-                ProgressView()
+                loading
             } else if viewModel.isSuccessful {
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundColor(.green)
-                Button {
-                    closeAction?()
-                } label: {
-                    Text("Klar")
-                        .padding()
-                }
+                success
             } else if viewModel.isError {
-                Image(systemName: "xmark.octagon.fill")
-                    .foregroundColor(.red)
-                Button {
-                    closeAction?()
-                } label: {
-                    Text("Försök igen")
-                }
+                error
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -45,6 +32,36 @@ struct SubmitView: View {
 
 private extension SubmitView {
 
+    var loading: some View {
+        VStack(spacing: 16) {
+            ProgressView()
+            Text("Skickar...")
+        }
+    }
+
+    var success: some View {
+        VStack(spacing: 16) {
+            Image(systemName: "checkmark.circle.fill")
+                .foregroundColor(.green)
+            Button {
+                closeAction?()
+            } label: {
+                Text("Klar")
+            }
+        }
+    }
+
+    var error: some View {
+        VStack(spacing: 16) {
+            Image(systemName: "xmark.octagon.fill")
+                .foregroundColor(.red)
+            Button {
+                closeAction?()
+            } label: {
+                Text("Försök igen")
+            }
+        }
+    }
 
 }
 
