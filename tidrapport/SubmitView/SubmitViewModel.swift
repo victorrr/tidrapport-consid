@@ -21,7 +21,7 @@ final class SubmitViewModel: ObservableObject {
 
     func submitData() {
         isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
             self.isLoading = false
             self.isSuccessful = true
         }

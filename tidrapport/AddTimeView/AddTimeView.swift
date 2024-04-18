@@ -15,14 +15,12 @@ struct AddTimeView: View {
 
     var body: some View {
         NavigationStack(path: $path) {
-            VStack {
+            ZStack {
                 Form {
                     Section(header: Text("Valda datum")) {
-                        List(viewModel.selectedDateStrings, id: \.self) { dateString in
-                            Text(dateString)
-                        }
+                        DatesGridView(items: viewModel.selectedDateStrings)
                     }
-                    Section {
+                    Section(header: Text("Information")) {
                         VStack(alignment: .leading) {
                             Text("Timmar").fontWeight(.bold)
                             TextField("", value: $viewModel.hours, formatter: NumberFormatter())
@@ -34,24 +32,35 @@ struct AddTimeView: View {
                         LabelTextField(label: "Ärendenummer", text: $viewModel.errandNumber)
                         LabelTextField(label: "Beskrivning", text: $viewModel.description)
                     }
-                    NavigationLink {
-                        viewModel.saveProjectData()
-                        return SubmitView(viewModel: viewModel.submitViewModel) {
-                            successAction()
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    } label: {
-                        Text("Spara")
-                    }
                 }
             }
             .navigationTitle("Lägg till tid")
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItem(placement: .topBarLeading) {
                     Button {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Stäng")
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        viewModel.saveProjectData()
+                        path.append("submit")
+                    } label: {
+                        Text("Spara")
+                            .padding(8)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    .navigationDestination(for: String.self) { view in
+                        if view == "submit" {
+                            SubmitView(viewModel: viewModel.submitViewModel) {
+                                successAction()
+                                presentationMode.wrappedValue.dismiss()
+                            }
+                        }
                     }
                 }
             }
@@ -59,7 +68,29 @@ struct AddTimeView: View {
     }
 }
 
+// MARK: - DatesGridView
+
+struct DatesGridView: View {
+    let items: [String]
+
+    var body: some View {
+        ScrollView {
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4)) {
+                ForEach(items, id: \.self) { item in
+                    Text("\(item)")
+                        .padding(6)
+                        .background(.red)
+                }
+            }
+            .padding(.vertical, 16)
+        }
+    }
+}
+
+// MARK: - Preview
+
 #Preview {
-    let viewModel = AddTimeViewModel(selectedDates: [Date()])
+    let dates = (0..<13).map { Date().addingTimeInterval(TimeInterval($0 * 86400)) }
+    let viewModel = AddTimeViewModel(selectedDates: dates)
     return AddTimeView(viewModel: viewModel, successAction: {})
 }

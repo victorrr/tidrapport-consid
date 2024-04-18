@@ -40,6 +40,7 @@ private extension LoginView {
                         }) {
                             Text("Logga in")
                         }
+                        .disabled(!viewModel.inputIsValid)
                     }
                 }
                 .navigationBarTitle("Logga in")
@@ -54,15 +55,17 @@ private extension LoginView {
             } else if viewModel.isSuccessful {
                 Image(systemName: "checkmark.circle.fill")
                     .foregroundColor(.green)
+                    .font(.system(size: 100))
                 Button {
                     presentationMode.wrappedValue.dismiss()
                 } label: {
-                    Text("Klar")
+                    Text("Börja rapportera tid")
                         .padding()
                 }
             } else if viewModel.isError {
                 Image(systemName: "xmark.octagon.fill")
                     .foregroundColor(.red)
+                    .font(.system(size: 100))
                 Button {
                     presentationMode.wrappedValue.dismiss()
                 } label: {

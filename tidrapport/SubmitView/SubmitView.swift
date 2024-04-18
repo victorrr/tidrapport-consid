@@ -43,6 +43,7 @@ private extension SubmitView {
         VStack(spacing: 16) {
             Image(systemName: "checkmark.circle.fill")
                 .foregroundColor(.green)
+                .font(.system(size: 100))
             Button {
                 closeAction?()
             } label: {
@@ -55,6 +56,7 @@ private extension SubmitView {
         VStack(spacing: 16) {
             Image(systemName: "xmark.octagon.fill")
                 .foregroundColor(.red)
+                .font(.system(size: 100))
             Button {
                 closeAction?()
             } label: {
