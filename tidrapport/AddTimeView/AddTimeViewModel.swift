@@ -49,10 +49,12 @@ final class AddTimeViewModel: ObservableObject {
     }
 
     var selectedDateStrings: [String] {
-        selectedDates.map {
-            let day = Calendar.current.component(.day, from: $0)
+        selectedDates
+            .sorted()
+            .map {
+            let dayNumber = Calendar.current.component(.day, from: $0)
             let month = Calendar.current.component(.month, from: $0)
-            return "\(day)/\(month)"}
+            return "\(dayName($0)) \(dayNumber)/\(month)"}
     }
 
     func saveProjectData() {
@@ -66,7 +68,35 @@ final class AddTimeViewModel: ObservableObject {
     }
 }
 
+enum DayName: String {
+    case monday = "Måndag"
+    case tuesday = "Tisdag"
+    case wednesday = "Onsdag"
+    case thursday = "Torsdag"
+    case friday = "Fredag"
+    case saturday = "Lördag"
+    case sunday = "Söndag"
+
+    init(_ day: Int) {
+        switch day {
+        case 1: self = .sunday
+        case 2: self = .monday
+        case 3: self = .tuesday
+        case 4: self = .wednesday
+        case 5: self = .thursday
+        case 6: self = .friday
+        case 7: self = .saturday
+        default: self = .monday
+        }
+    }
+}
+
 private extension AddTimeViewModel {
+
+    func dayName(_ date: Date) -> String {
+        let dayName = Calendar.current.component(.weekday, from: date)
+        return DayName(dayName).rawValue
+    }
 
     var lastProject: String {
         UserDefaults.standard.string(forKey: Key.lastProject) ?? ""

@@ -18,7 +18,11 @@ struct AddTimeView: View {
             ZStack {
                 Form {
                     Section(header: Text("Valda datum")) {
-                        DatesGridView(items: viewModel.selectedDateStrings)
+                        VStack(alignment: .leading) {
+                            ForEach(viewModel.selectedDateStrings, id: \.self) {
+                                Text("\($0)")
+                            }
+                        }
                     }
                     Section(header: Text("Information")) {
                         VStack(alignment: .leading) {

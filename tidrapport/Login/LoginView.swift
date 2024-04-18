@@ -28,7 +28,7 @@ private extension LoginView {
         NavigationView {
             VStack {
                 Form {
-                    Section {
+                    Section(header: Text("Inloggningsuppgifter")) {
                         TextField("Email", text: $viewModel.email)
                             .autocapitalization(.none)
                             .keyboardType(.emailAddress)
@@ -43,7 +43,8 @@ private extension LoginView {
                         .disabled(!viewModel.inputIsValid)
                     }
                 }
-                .navigationBarTitle("Logga in")
+                .navigationBarTitle("Tidrapport")
+
             }
         }
     }
