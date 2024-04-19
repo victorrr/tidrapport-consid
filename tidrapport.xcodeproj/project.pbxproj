@@ -24,6 +24,8 @@
 		E0F401942BD106AF0079491E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F401932BD106AF0079491E /* LoginView.swift */; };
 		E0F401962BD1074B0079491E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F401952BD1074B0079491E /* LoginViewModel.swift */; };
 		E0F401982BD11D0D0079491E /* LabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F401972BD11D0D0079491E /* LabelTextField.swift */; };
+		E0F4019B2BD257CC0079491E /* DateInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4019A2BD257CC0079491E /* DateInformationView.swift */; };
+		E0F4019D2BD2580C0079491E /* DateInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4019C2BD2580C0079491E /* DateInformationViewModel.swift */; };
 		E0FAFFB82BBC238800A223E6 /* MonthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */; };
 		E0FAFFBB2BBD533700A223E6 /* AddTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFBA2BBD533700A223E6 /* AddTimeView.swift */; };
 		E0FAFFBE2BBD85DA00A223E6 /* DateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFBD2BBD85DA00A223E6 /* DateData.swift */; };
@@ -48,6 +50,8 @@
 		E0F401932BD106AF0079491E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E0F401952BD1074B0079491E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E0F401972BD11D0D0079491E /* LabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextField.swift; sourceTree = "<group>"; };
+		E0F4019A2BD257CC0079491E /* DateInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInformationView.swift; sourceTree = "<group>"; };
+		E0F4019C2BD2580C0079491E /* DateInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInformationViewModel.swift; sourceTree = "<group>"; };
 		E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthViewModel.swift; sourceTree = "<group>"; };
 		E0FAFFBA2BBD533700A223E6 /* AddTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeView.swift; sourceTree = "<group>"; };
 		E0FAFFBD2BBD85DA00A223E6 /* DateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateData.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 		E0BCB05E2BB1AE2E00E1CD4B /* tidrapport */ = {
 			isa = PBXGroup;
 			children = (
+				E0F401992BD257B40079491E /* DateInformation */,
 				E0F401922BD1069C0079491E /* Login */,
 				E0D1D1142BC0326600ED5D74 /* Calendar */,
 				E0FAFFB92BBD52C700A223E6 /* AddTimeView */,
@@ -175,6 +180,15 @@
 				E0F401952BD1074B0079491E /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		E0F401992BD257B40079491E /* DateInformation */ = {
+			isa = PBXGroup;
+			children = (
+				E0F4019A2BD257CC0079491E /* DateInformationView.swift */,
+				E0F4019C2BD2580C0079491E /* DateInformationViewModel.swift */,
+			);
+			path = DateInformation;
 			sourceTree = "<group>";
 		};
 		E0FAFFB92BBD52C700A223E6 /* AddTimeView */ = {
@@ -270,7 +284,9 @@
 				E048A81B2BB2D071002271C3 /* CalendarViewModel.swift in Sources */,
 				E048A81F2BB2D126002271C3 /* DateIntervalExtension.swift in Sources */,
 				E06BF5762BB44896007A135D /* MonthView.swift in Sources */,
+				E0F4019D2BD2580C0079491E /* DateInformationViewModel.swift in Sources */,
 				E0D1D1132BC0324700ED5D74 /* CalendarCellViewModel.swift in Sources */,
+				E0F4019B2BD257CC0079491E /* DateInformationView.swift in Sources */,
 				E0FAFFB82BBC238800A223E6 /* MonthViewModel.swift in Sources */,
 				E0BCB0622BB1AE2E00E1CD4B /* CalendarView.swift in Sources */,
 				E0F401982BD11D0D0079491E /* LabelTextField.swift in Sources */,

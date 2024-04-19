@@ -8,7 +8,7 @@
 import Foundation
 
 final class LoginViewModel: ObservableObject {
-    @Published var email = ""
+    @Published var email = UserDefaults.standard.string(forKey: Key.email) ?? ""
     @Published var password = ""
     @Published var isLoggedIn = false
     @Published var isLoading = false
@@ -16,8 +16,9 @@ final class LoginViewModel: ObservableObject {
     @Published var isError = false
 
     func login() {
+        UserDefaults.standard.setValue(email, forKey: Key.email)
         isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isLoading = false
             self.isSuccessful = true
         }
@@ -25,6 +26,15 @@ final class LoginViewModel: ObservableObject {
 
     var inputIsValid: Bool {
         !email.isEmpty && !password.isEmpty && isValidEmail
+    }
+}
+
+// MARK: - Key
+
+private extension LoginViewModel {
+
+    struct Key {
+        static let email = "email"
     }
 }
 

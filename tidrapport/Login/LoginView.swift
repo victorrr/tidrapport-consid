@@ -34,17 +34,14 @@ private extension LoginView {
                             .keyboardType(.emailAddress)
                         SecureField("Lösenord", text: $viewModel.password)
                     }
-                    Section {
-                        Button(action: {
-                            viewModel.login()
-                        }) {
-                            Text("Logga in")
-                        }
-                        .disabled(!viewModel.inputIsValid)
-                    }
                 }
                 .navigationBarTitle("Tidrapport")
-
+                Button(action: {
+                    viewModel.login()
+                }) {
+                    Text("Logga in")
+                }
+                .disabled(!viewModel.inputIsValid)
             }
         }
     }

@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct GridKey: Hashable {
-    let row: Int
-    let col: Int
-}
-
 final class MonthViewModel: ObservableObject {
     @Published var selectedDates: [Date] = []
     let daysOfWeek = ["M", "Ti", "O", "To", "F", "L", "S"]
@@ -96,4 +91,11 @@ extension MonthViewModel {
                                      type: .date,
                                      date: date(for: day))
     }
+}
+
+// MARK: - GridKey
+
+struct GridKey: Hashable {
+    let row: Int
+    let col: Int
 }
