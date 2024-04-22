@@ -10,7 +10,7 @@ import Foundation
 struct TimeEntry: Decodable, Hashable, Identifiable {
     let id: Int
     let date: String
-    let hours: Float
+    let hours: Double
     let article: Article
     let customer: Customer
     let project: Project?

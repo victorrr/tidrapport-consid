@@ -12,25 +12,26 @@ struct DateInformationView: View {
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-        VStack {
-            VStack {
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Text("Stäng")
-                    }
+        NavigationView {
+            List {
+                if let extraInfo = viewModel.extraInfo {
+                    Text(extraInfo)
+                        .font(.body)
+                        .multilineTextAlignment(.leading)
                 }
-                Text(viewModel.informationString ?? "Inte matchad till ett datum")
-                    .font(.title)
-                    .multilineTextAlignment(.center)
+                ForEach(viewModel.informationStrings ?? [], id: \.self) { informationString in
+                    Text(informationString)
+                        .font(.body)
+                        .multilineTextAlignment(.leading)
+                }
             }
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.white)
-            .cornerRadius(20)
-            Spacer()
+            .toolbar {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Stäng")
+                }
+            }
         }
     }
 }

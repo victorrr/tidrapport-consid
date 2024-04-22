@@ -28,7 +28,7 @@ final class MonthViewModel: ObservableObject {
             }
     }
 
-    func updateReportedTime(_ timeEntries: [TimeEntry]) {
+    @MainActor func updateReportedTime(_ timeEntries: [TimeEntry]) {
         for (key, value) in cellViewModels {
             if let matchingTimeEntry = timeEntries.first(where: { $0.date == value.dateString }) {
                 cellViewModels[key]?.timeEntry = matchingTimeEntry

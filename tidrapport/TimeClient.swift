@@ -10,7 +10,7 @@ import Foundation
 final class TimeClient {
     let apiKey = "BEA50D34C57C5470DF3B475BD32C19FD822170E51060FF9107129DA61DA84526"
 
-    func fetchReportedTime(fromDate: Date, toDate: Date, completion: @escaping (Result<[TimeEntry], Error>) -> Void) {
+    func fetchReportedTime(fromDate: Date, toDate: Date) async throws -> [TimeEntry] {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let formattedFromDate = dateFormatter.string(from: fromDate)
@@ -23,30 +23,16 @@ final class TimeClient {
         ]
 
         guard let url = components.url else {
-            // Hantera fel här om URL inte kan skapas
-            return
+            throw URLError(.badURL)
         }
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
+        var request = URLRequest(url: url)
+        request.addValue(apiKey, forHTTPHeaderField: "X-ApiKey")
 
-            guard let data = data else {
-                completion(.failure(TimeClientError.noData))
-                return
-            }
+        let (data, _) = try await URLSession.shared.data(for: request)
 
-            do {
-                let decoder = JSONDecoder()
-                let dateInformation = try decoder.decode([TimeEntry].self, from: data)
-                completion(.success(dateInformation))
-            } catch {
-                print("Decoding error: \(error)")
-                completion(.failure(error))
-            }
-        }
-        task.resume()
+        let decoder = JSONDecoder()
+        let dateInformation = try decoder.decode([TimeEntry].self, from: data)
+        return dateInformation
     }
 }
 

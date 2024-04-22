@@ -28,12 +28,11 @@ final class CalendarViewModel: ObservableObject {
     func fetchReportedTime() {
         let fromDate = calendar.date(from: DateComponents(year: year, month: 1, day: 1))!
         let toDate = calendar.date(from: DateComponents(year: year, month: 12, day: 31))!
-        client.fetchReportedTime(fromDate: fromDate, toDate: toDate) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let reportedTime):
-                updateReportedTime(reportedTime)
-            case .failure(let error):
+        Task {
+            do {
+                let reportedTime = try await client.fetchReportedTime(fromDate: fromDate, toDate: toDate)
+                await updateReportedTime(reportedTime)
+            } catch {
                 print(error)
             }
         }
@@ -91,7 +90,7 @@ private extension CalendarViewModel {
         }
     }
 
-    func updateReportedTime(_ reportedTime: [TimeEntry]) {
+    @MainActor func updateReportedTime(_ reportedTime: [TimeEntry]) {
         monthViewModels.forEach { $0.updateReportedTime(reportedTime) }
     }
 }

@@ -15,13 +15,16 @@ struct CalendarCellView: View {
         Text(viewModel.text ?? "")
             .multilineTextAlignment(.leading)
             .frame(minWidth: 0, maxWidth: .infinity)
-            .background(viewModel.isSelected ? CalendarCellViewModel.CellType.selected.bgColor : viewModel.background)
+            .background(viewModel.background)
             .padding(4)
             .onLongPressGesture {
-                isInformationSheetPresented = true
+                if viewModel.shouldShowInformation {
+                    isInformationSheetPresented.toggle()
+                }
             }
             .sheet(isPresented: $isInformationSheetPresented, content: {
-                let vm = DateInformationViewModel(timeEntry: viewModel.timeEntry)
+                let vm = DateInformationViewModel(timeEntry: viewModel.timeEntry,
+                                                  extraInfo: viewModel.extraInfo)
                 return DateInformationView(viewModel: vm)
             })
     }

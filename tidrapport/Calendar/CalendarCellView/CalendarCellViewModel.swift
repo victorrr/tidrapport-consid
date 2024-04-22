@@ -51,6 +51,24 @@ final class CalendarCellViewModel: ObservableObject {
         }
         return .clear
     }
+
+    var shouldShowInformation: Bool {
+        switch type {
+        case .date, .selected, .reported, .submitted:
+            return true
+        default: return false
+        }
+    }
+
+    var extraInfo: String? {
+        if isWeekend {
+            return "Klickad dag är på en helg"
+        }
+        if isHoliday {
+            return "Klickad dag är på en helgdag"
+        }
+        return nil
+    }
 }
 
 extension CalendarCellViewModel: Hashable {
