@@ -22,7 +22,7 @@ struct DateInformationView: View {
                         Text("Stäng")
                     }
                 }
-                Text(viewModel.description)
+                Text(viewModel.informationString ?? "Inte matchad till ett datum")
                     .font(.title)
                     .multilineTextAlignment(.center)
             }
@@ -36,5 +36,5 @@ struct DateInformationView: View {
 }
 
 #Preview {
-    DateInformationView(viewModel: DateInformationViewModel(description: "Beskrivning av datumet"))
+    DateInformationView(viewModel: DateInformationViewModel(timeEntry: nil))
 }

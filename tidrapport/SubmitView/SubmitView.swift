@@ -44,6 +44,7 @@ private extension SubmitView {
             Image(systemName: "checkmark.circle.fill")
                 .foregroundColor(.green)
                 .font(.system(size: 100))
+            Text("Tidrapporten har skickats!")
             Button {
                 closeAction?()
             } label: {
@@ -68,15 +69,8 @@ private extension SubmitView {
 }
 
 #Preview {
-    let projectData = ProjectData(id: "1",
-                                  hours: 8,
-                                  article: "",
-                                  customer: "",
-                                  project: "",
-                                  activity: "",
-                                  errandNumber: "",
-                                  description: "",
-                                  isSubmitted: false)
-    let viewModel = SubmitViewModel(projectData: projectData, dates: [Date()])
+    let timeEntry = TimeEntry(id: 0, date: "", hours: 8, article: Article(id: 0, name: ""), customer: Customer(id: 0, name: ""), project: Project(id: 0, name: ""), activity: "", caseNumber: "", description: "", isSubmitted: true, empId: "")
+
+    let viewModel = SubmitViewModel(projectData: timeEntry, dates: [Date()])
     return SubmitView(viewModel: viewModel)
 }

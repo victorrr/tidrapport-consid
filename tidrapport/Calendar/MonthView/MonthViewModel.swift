@@ -18,14 +18,22 @@ final class MonthViewModel: ObservableObject {
         self.month = month
     }
 
-    func addCellViewModels() {
+    func addCellViewModels(isHoliday: (Date) -> Bool, isWeekend: (Date) -> Bool) {
         (0..<rows)
             .forEach { row in
                 (0..<8).forEach { col in
                     let key = GridKey(row: row, col: col)
-                    cellViewModels[key] = createCellViewModel(gridKey: key)
+                    cellViewModels[key] = createCellViewModel(gridKey: key, isHoliday: isHoliday, isWeekend: isWeekend)
                 }
             }
+    }
+
+    func updateReportedTime(_ timeEntries: [TimeEntry]) {
+        for (key, value) in cellViewModels {
+            if let matchingTimeEntry = timeEntries.first(where: { $0.date == value.dateString }) {
+                cellViewModels[key]?.timeEntry = matchingTimeEntry
+            }
+        }
     }
 
     var range: Range<Int> {
@@ -75,7 +83,7 @@ extension MonthViewModel {
         daysOfWeek.map { CalendarCellViewModel(text: $0, type: .weekDayName) }
     }
 
-    func createCellViewModel(gridKey: GridKey) -> CalendarCellViewModel {
+    func createCellViewModel(gridKey: GridKey, isHoliday: (Date) -> Bool, isWeekend: (Date) -> Bool) -> CalendarCellViewModel {
         let isWeekColumn = (gridKey.col == 0)
         guard !isWeekColumn else {
             return CalendarCellViewModel(text: "\(weekNumber(for: gridKey.row))", 
@@ -87,9 +95,14 @@ extension MonthViewModel {
         guard isAfterMonthStartDay, isBeforeMonthEndDay else {
             return CalendarCellViewModel(type: .emptyDate)
         }
-        return CalendarCellViewModel(text: dateString(for: day), 
+        let date = date(for: day)
+        let isHoliday = isHoliday(date)
+        let isWeekend = isWeekend(date)
+        return CalendarCellViewModel(text: dateString(for: day),
                                      type: .date,
-                                     date: date(for: day))
+                                     date: date,
+                                     isHoliday: isHoliday,
+                                     isWeekend: isWeekend)
     }
 }
 

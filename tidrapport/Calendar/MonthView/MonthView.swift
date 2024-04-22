@@ -59,7 +59,6 @@ private extension MonthView {
 
     func dateCell(cellViewModel: CalendarCellViewModel) -> some View {
         CalendarCellView(viewModel: cellViewModel)
-            .background(cellViewModel.background)
             .simultaneousGesture(TapGesture().onEnded { _ in
                 guard let selectedDate = cellViewModel.date else { return }
                 cellViewModel.isSelected.toggle()
@@ -79,6 +78,7 @@ private extension MonthView {
 #Preview {
     let currentMonth = Calendar.current.date(from: DateComponents(year: 2024, month: 4))!
     let viewModel = MonthViewModel(month: currentMonth)
-    viewModel.addCellViewModels()
+    viewModel.addCellViewModels(isHoliday: { _ in return false},
+                                isWeekend: { _ in return false})
     return MonthView(viewModel: viewModel)
 }

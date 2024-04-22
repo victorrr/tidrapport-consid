@@ -10,55 +10,46 @@ import SwiftUI
 
 final class CalendarCellViewModel: ObservableObject {
     @Published var isSelected = false
+    @Published var timeEntry: TimeEntry?
     let text: String?
     let type: CellType
     let date: Date?
-    let holidays: [Date] = [
-        Calendar.current.date(from: DateComponents(year: 2024, month: 1, day: 1))!,
-        Calendar.current.date(from: DateComponents(year: 2024, month: 1, day: 6))!,
-        Calendar.current.date(from: DateComponents(year: 2024, month: 4, day: 19))!,
-        Calendar.current.date(from: DateComponents(year: 2024, month: 4, day: 21))!,
-        Calendar.current.date(from: DateComponents(year: 2024, month: 6, day: 6))!,
-        Calendar.current.date(from: DateComponents(year: 2024, month: 6, day: 22))!,
-        Calendar.current.date(from: DateComponents(year: 2024, month: 11, day: 2))!,
-        Calendar.current.date(from: DateComponents(year: 2024, month: 12, day: 25))!,
-        Calendar.current.date(from: DateComponents(year: 2024, month: 12, day: 26))!
-    ]
+    private let isHoliday: Bool
+    private let isWeekend: Bool
 
     init(text: String? = nil,
          type: CellType,
-         date: Date? = nil) {
+         date: Date? = nil,
+         isHoliday: Bool = false,
+         isWeekend: Bool = false) {
         self.text = text
         self.type = type
         self.date = date
+        self.isHoliday = isHoliday
+        self.isWeekend = isWeekend
+    }
+
+    var dateString: String {
+        guard let date = date else { return "" }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: date)
     }
 
     var background: Color {
+        if date == nil {
+            return type.bgColor
+        }
         if isSelected {
             return .red
         }
         if isHoliday || isWeekend {
             return .yellow
         }
-        return .clear
-    }
-}
-
-private extension CalendarCellViewModel {
-
-    var isHoliday: Bool {
-        guard let date = date else { return false }
-        let calendar = Calendar.current
-        return holidays.contains { holiday in
-            calendar.isDate(date, inSameDayAs: holiday)
+        if timeEntry?.isSubmitted == true {
+            return .green
         }
-    }
-
-    var isWeekend: Bool {
-        guard let date = date else { return false }
-        let calendar = Calendar.current
-        let weekday = calendar.component(.weekday, from: date)
-        return weekday == 1 || weekday == 7
+        return .clear
     }
 }
 

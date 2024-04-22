@@ -24,8 +24,11 @@ struct CalendarView: View {
                 addTimeView
             }
         }
-        .sheet(isPresented: $viewModel.isPresentingLoginView, content: {
+        .sheet(isPresented: $viewModel.isPresentingLoginView) {
             loginView
+        }
+        .onAppear(perform: {
+            viewModel.fetchReportedTime()
         })
     }
 }
@@ -36,7 +39,7 @@ private extension CalendarView {
 
     var addTimeView: some View {
         let addTimeViewModel = AddTimeViewModel(selectedDates: viewModel.selectedDates)
-        addTimeViewModel.prefillProjectData()
+        addTimeViewModel.prefillTimeEntry()
         return AddTimeView(viewModel: addTimeViewModel, successAction: viewModel.refresh)
             .onDisappear {
                 isPresentingAddTimeView = false

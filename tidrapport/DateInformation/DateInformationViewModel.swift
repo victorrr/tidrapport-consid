@@ -8,9 +8,14 @@
 import Foundation
 
 final class DateInformationViewModel {
-    var description: String
+    private var timeEntry: TimeEntry?
 
-    init(description: String) {
-        self.description = description
+    init(timeEntry: TimeEntry?) {
+        self.timeEntry = timeEntry
+    }
+
+    var informationString: String? {
+        guard let timeEntry = timeEntry else { return nil }
+        return "Kund: \(timeEntry.customer.name)\nTid: \(timeEntry.hours)"
     }
 }

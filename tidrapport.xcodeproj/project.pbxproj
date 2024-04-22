@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E00FCE262BC02CA20042DABA /* AddTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00FCE252BC02CA20042DABA /* AddTimeViewModel.swift */; };
-		E048A8192BB2BE1C002271C3 /* ProjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A8182BB2BE1C002271C3 /* ProjectData.swift */; };
+		E048A8192BB2BE1C002271C3 /* TimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A8182BB2BE1C002271C3 /* TimeEntry.swift */; };
 		E048A81B2BB2D071002271C3 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A81A2BB2D071002271C3 /* CalendarViewModel.swift */; };
 		E048A81F2BB2D126002271C3 /* DateIntervalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A81E2BB2D126002271C3 /* DateIntervalExtension.swift */; };
 		E06BF5722BB447EB007A135D /* CalendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06BF5712BB447EB007A135D /* CalendarCellView.swift */; };
@@ -26,6 +26,7 @@
 		E0F401982BD11D0D0079491E /* LabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F401972BD11D0D0079491E /* LabelTextField.swift */; };
 		E0F4019B2BD257CC0079491E /* DateInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4019A2BD257CC0079491E /* DateInformationView.swift */; };
 		E0F4019D2BD2580C0079491E /* DateInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4019C2BD2580C0079491E /* DateInformationViewModel.swift */; };
+		E0F4019F2BD261800079491E /* TimeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4019E2BD261800079491E /* TimeClient.swift */; };
 		E0FAFFB82BBC238800A223E6 /* MonthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */; };
 		E0FAFFBB2BBD533700A223E6 /* AddTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFBA2BBD533700A223E6 /* AddTimeView.swift */; };
 		E0FAFFBE2BBD85DA00A223E6 /* DateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAFFBD2BBD85DA00A223E6 /* DateData.swift */; };
@@ -33,7 +34,7 @@
 
 /* Begin PBXFileReference section */
 		E00FCE252BC02CA20042DABA /* AddTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeViewModel.swift; sourceTree = "<group>"; };
-		E048A8182BB2BE1C002271C3 /* ProjectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectData.swift; sourceTree = "<group>"; };
+		E048A8182BB2BE1C002271C3 /* TimeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntry.swift; sourceTree = "<group>"; };
 		E048A81A2BB2D071002271C3 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		E048A81E2BB2D126002271C3 /* DateIntervalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalExtension.swift; sourceTree = "<group>"; };
 		E06BF5712BB447EB007A135D /* CalendarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellView.swift; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		E0F401972BD11D0D0079491E /* LabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextField.swift; sourceTree = "<group>"; };
 		E0F4019A2BD257CC0079491E /* DateInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInformationView.swift; sourceTree = "<group>"; };
 		E0F4019C2BD2580C0079491E /* DateInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInformationViewModel.swift; sourceTree = "<group>"; };
+		E0F4019E2BD261800079491E /* TimeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeClient.swift; sourceTree = "<group>"; };
 		E0FAFFB72BBC238800A223E6 /* MonthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthViewModel.swift; sourceTree = "<group>"; };
 		E0FAFFBA2BBD533700A223E6 /* AddTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeView.swift; sourceTree = "<group>"; };
 		E0FAFFBD2BBD85DA00A223E6 /* DateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateData.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				E0BCB05F2BB1AE2E00E1CD4B /* tidrapportApp.swift */,
 				E0BCB0632BB1AE3000E1CD4B /* Assets.xcassets */,
 				E0BCB0652BB1AE3000E1CD4B /* Preview Content */,
+				E0F4019E2BD261800079491E /* TimeClient.swift */,
 			);
 			path = tidrapport;
 			sourceTree = "<group>";
@@ -203,7 +206,7 @@
 		E0FAFFBC2BBD7B2500A223E6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E048A8182BB2BE1C002271C3 /* ProjectData.swift */,
+				E048A8182BB2BE1C002271C3 /* TimeEntry.swift */,
 				E0FAFFBD2BBD85DA00A223E6 /* DateData.swift */,
 			);
 			path = Models;
@@ -289,13 +292,14 @@
 				E0F4019B2BD257CC0079491E /* DateInformationView.swift in Sources */,
 				E0FAFFB82BBC238800A223E6 /* MonthViewModel.swift in Sources */,
 				E0BCB0622BB1AE2E00E1CD4B /* CalendarView.swift in Sources */,
+				E0F4019F2BD261800079491E /* TimeClient.swift in Sources */,
 				E0F401982BD11D0D0079491E /* LabelTextField.swift in Sources */,
 				E06BF5742BB44854007A135D /* GridStack.swift in Sources */,
 				E0FAFFBE2BBD85DA00A223E6 /* DateData.swift in Sources */,
 				E0F401962BD1074B0079491E /* LoginViewModel.swift in Sources */,
 				E0F401912BCFFB0C0079491E /* SubmitViewModel.swift in Sources */,
 				E00FCE262BC02CA20042DABA /* AddTimeViewModel.swift in Sources */,
-				E048A8192BB2BE1C002271C3 /* ProjectData.swift in Sources */,
+				E048A8192BB2BE1C002271C3 /* TimeEntry.swift in Sources */,
 				E0F4018F2BCD54420079491E /* SubmitView.swift in Sources */,
 				E0F401942BD106AF0079491E /* LoginView.swift in Sources */,
 				E0BCB0602BB1AE2E00E1CD4B /* tidrapportApp.swift in Sources */,

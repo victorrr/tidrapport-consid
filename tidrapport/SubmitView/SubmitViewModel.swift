@@ -8,13 +8,13 @@
 import Foundation
 
 final class SubmitViewModel: ObservableObject {
-    @Published var projectData: ProjectData
+    @Published var projectData: TimeEntry
     @Published var dates: [Date]
     @Published var isLoading = false
     @Published var isSuccessful = false
     @Published var isError = false
 
-    init(projectData: ProjectData, dates: [Date]) {
+    init(projectData: TimeEntry, dates: [Date]) {
         self.projectData = projectData
         self.dates = dates
     }

@@ -9,5 +9,5 @@ import Foundation
 
 struct DateData: Hashable {
     let date: String
-    let projectEntries: [ProjectData]
+    let projectEntries: [TimeEntry]
 }

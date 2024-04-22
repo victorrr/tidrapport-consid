@@ -49,7 +49,7 @@ struct AddTimeView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        viewModel.saveProjectData()
+                        viewModel.saveTimeEntry()
                         path.append("submit")
                     } label: {
                         Text("Spara")

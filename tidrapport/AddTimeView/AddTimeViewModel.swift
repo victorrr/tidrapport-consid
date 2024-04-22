@@ -21,7 +21,7 @@ final class AddTimeViewModel: ObservableObject {
         self.selectedDates = selectedDates
     }
 
-    func prefillProjectData() {
+    func prefillTimeEntry() {
         hours = lastHours
         article = lastArticle
         customer = lastCustomer
@@ -31,21 +31,25 @@ final class AddTimeViewModel: ObservableObject {
         description = lastDescription
     }
 
-    var projectData: ProjectData {
-        ProjectData(id: UUID().uuidString,
-                    date: nil,
-                    hours: hours,
-                    article: article,
-                    customer: customer,
-                    project: project,
-                    activity: activity,
-                    errandNumber: errandNumber,
-                    description: description,
-                    isSubmitted: false)
+    var timeEntry: TimeEntry {
+        TimeEntry(id: 0,
+                  date: "",
+                  hours: hours,
+                  article: Article(id: 0,
+                                   name: article),
+                  customer: Customer(id: 0,
+                                     name: customer),
+                  project: Project(id: 0,
+                                   name: project),
+                  activity: activity,
+                  caseNumber: errandNumber,
+                  description: description,
+                  isSubmitted: false,
+                  empId: "Mitt användarId")
     }
 
     var submitViewModel: SubmitViewModel {
-        SubmitViewModel(projectData: projectData, dates: selectedDates)
+        SubmitViewModel(projectData: timeEntry, dates: selectedDates)
     }
 
     var selectedDateStrings: [String] {
@@ -57,7 +61,7 @@ final class AddTimeViewModel: ObservableObject {
             return "\(dayName($0)) \(dayNumber)/\(month)"}
     }
 
-    func saveProjectData() {
+    func saveTimeEntry() {
         UserDefaults.standard.setValue(project, forKey: Key.lastProject)
         UserDefaults.standard.setValue(hours, forKey: Key.lastHours)
         UserDefaults.standard.setValue(article, forKey: Key.lastArticle)
