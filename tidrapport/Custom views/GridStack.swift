@@ -28,5 +28,6 @@ struct GridStack<Content: View>: View {
                 }
             }
         }
+        .fixedSize(horizontal: false, vertical: true)
     }
 }

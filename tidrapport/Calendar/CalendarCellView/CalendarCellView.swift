@@ -17,11 +17,12 @@ struct CalendarCellView: View {
             .frame(minWidth: 0, maxWidth: .infinity)
             .background(viewModel.background)
             .padding(4)
-            .onLongPressGesture {
-                if viewModel.shouldShowInformation {
-                    isInformationSheetPresented.toggle()
-                }
-            }
+            .simultaneousGesture(
+                LongPressGesture().onEnded { _ in
+                    if viewModel.shouldShowInformation {
+                        isInformationSheetPresented.toggle()
+                    }
+                })
             .sheet(isPresented: $isInformationSheetPresented, content: {
                 let vm = DateInformationViewModel(timeEntry: viewModel.timeEntry,
                                                   extraInfo: viewModel.extraInfo)

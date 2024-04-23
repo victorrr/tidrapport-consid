@@ -46,6 +46,12 @@ final class CalendarCellViewModel: ObservableObject {
         if isHoliday || isWeekend {
             return .yellow
         }
+        if timeEntry?.article.name == "Semester" {
+            return .blue
+        }
+        if timeEntry?.article.name == "Föräldraledig" {
+            return .indigo
+        }
         if timeEntry?.isSubmitted == true {
             return .green
         }
@@ -54,7 +60,7 @@ final class CalendarCellViewModel: ObservableObject {
 
     var shouldShowInformation: Bool {
         switch type {
-        case .date, .selected, .reported, .submitted:
+        case .date:
             return true
         default: return false
         }
@@ -93,9 +99,6 @@ extension CalendarCellViewModel {
         case week
         case date
         case emptyDate
-        case selected
-        case reported
-        case submitted
 
         var bgColor: Color {
             switch self {
@@ -105,18 +108,12 @@ extension CalendarCellViewModel {
                 return .gray
             case .date, .emptyDate:
                 return .clear
-            case .selected:
-                return .red
-            case .reported:
-                return .yellow
-            case .submitted:
-                return .green
             }
         }
 
         var isSelectable: Bool {
             switch self {
-            case .date, .selected:
+            case .date:
                 return true
             default:
                 return false
@@ -133,12 +130,6 @@ extension CalendarCellViewModel {
                 return "Date"
             case .emptyDate:
                 return "Empty Date"
-            case .selected:
-                return "Selected"
-            case .reported:
-                return "Reported"
-            case .submitted:
-                return "Submitted"
             }
         }
     }

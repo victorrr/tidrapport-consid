@@ -16,6 +16,7 @@ struct MonthView: View {
             weekDaysView
             datesGrid
         }
+        .fixedSize(horizontal: false, vertical: true)
     }
 }
 
@@ -50,7 +51,7 @@ private extension MonthView {
             return AnyView(EmptyView())
         }
         switch cellViewModel.type {
-        case .date, .reported, .selected, .submitted:
+        case .date:
             return AnyView(dateCell(cellViewModel: cellViewModel))
         case .emptyDate, .week, .weekDayName:
             return AnyView(CalendarCellView(viewModel: cellViewModel))

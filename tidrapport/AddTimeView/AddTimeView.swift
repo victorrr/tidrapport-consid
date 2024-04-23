@@ -72,25 +72,6 @@ struct AddTimeView: View {
     }
 }
 
-// MARK: - DatesGridView
-
-struct DatesGridView: View {
-    let items: [String]
-
-    var body: some View {
-        ScrollView {
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4)) {
-                ForEach(items, id: \.self) { item in
-                    Text("\(item)")
-                        .padding(6)
-                        .background(.red)
-                }
-            }
-            .padding(.vertical, 16)
-        }
-    }
-}
-
 // MARK: - Preview
 
 #Preview {
