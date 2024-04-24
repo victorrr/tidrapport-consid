@@ -12,6 +12,7 @@ final class MonthViewModel: ObservableObject {
     var cellViewModels: [GridKey: CalendarCellViewModel] = [:]
     private var month: Date
     private let calendar = Calendar.current
+    @Published var allDatesSelected: Bool = false
 
     init(month: Date) {
         self.month = month
@@ -37,6 +38,13 @@ final class MonthViewModel: ObservableObject {
 
     var daysOfWeekViewModel: [CalendarCellViewModel] {
         daysOfWeek.map { CalendarCellViewModel(text: $0, type: .weekDayName) }
+    }
+
+    func toggleAllValidDatesSelected() {
+        allDatesSelected.toggle()
+        cellViewModels.values
+            .filter { $0.isSelectableDate }
+            .forEach { $0.isSelected = allDatesSelected }
     }
 
     func addCellViewModels(isHoliday: (Date) -> Bool, isWeekend: (Date) -> Bool) {

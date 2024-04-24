@@ -91,8 +91,8 @@
             filePath = "tidrapport/Calendar/MonthView/MonthView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "MonthView"
             landmarkType = "21">
          </BreakpointContent>
@@ -107,8 +107,8 @@
             filePath = "tidrapport/Calendar/CalendarCellView/CalendarCellViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "hash(into:)"
             landmarkType = "7">
          </BreakpointContent>

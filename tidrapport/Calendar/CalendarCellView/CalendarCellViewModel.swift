@@ -36,6 +36,10 @@ final class CalendarCellViewModel: ObservableObject {
         return dateFormatter.string(from: date)
     }
 
+    var isSelectableDate: Bool {
+        type.isSelectable && !isHoliday && !isWeekend && timeEntry == nil
+    }
+
     var background: Color {
         if date == nil {
             return type.bgColor
@@ -112,12 +116,7 @@ extension CalendarCellViewModel {
         }
 
         var isSelectable: Bool {
-            switch self {
-            case .date:
-                return true
-            default:
-                return false
-            }
+            self == .date
         }
 
         var name: String {

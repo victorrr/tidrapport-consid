@@ -28,6 +28,10 @@ private extension MonthView {
         Text(viewModel.monthName.capitalized)
             .font(.title)
             .padding(.top, 8)
+            .foregroundColor(viewModel.allDatesSelected ? .green : .black)
+            .onTapGesture {
+                viewModel.toggleAllValidDatesSelected()
+            }
     }
 
     var weekDaysView: some View {
