@@ -36,12 +36,29 @@ final class MonthViewModel: ObservableObject {
         }
     }
 
-    var range: Range<Int> {
-        calendar.range(of: .day, in: .month, for: month)!
-    }
-
     var monthName: String {
         calendar.standaloneMonthSymbols[calendar.component(.month, from: month) - 1]
+    }
+    
+    var rows: Int {
+        (range.count + startDayOfWeek + 6) / 7
+    }
+
+    var weekViewModel: CalendarCellViewModel {
+        CalendarCellViewModel(text: "V", type: .week)
+    }
+
+    var daysOfWeekViewModel: [CalendarCellViewModel] {
+        daysOfWeek.map { CalendarCellViewModel(text: $0, type: .weekDayName) }
+    }
+}
+
+// MARK: - Private
+
+private extension MonthViewModel {
+
+    var range: Range<Int> {
+        calendar.range(of: .day, in: .month, for: month)!
     }
 
     var startDate: Date {
@@ -50,10 +67,6 @@ final class MonthViewModel: ObservableObject {
 
     var startDayOfWeek: Int {
         calendar.component(.weekday, from: startDate) - 1
-    }
-
-    var rows: Int {
-        (range.count + startDayOfWeek + 6) / 7
     }
 
     func day(for row: Int, col: Int) -> Int {
@@ -71,22 +84,11 @@ final class MonthViewModel: ObservableObject {
     func weekNumber(for row: Int) -> Int {
         calendar.component(.weekOfYear, from: calendar.date(byAdding: .day, value: row * 7, to: startDate)!)
     }
-}
-
-extension MonthViewModel {
-
-    var weekViewModel: CalendarCellViewModel {
-        CalendarCellViewModel(text: "V", type: .week)
-    }
-
-    var daysOfWeekViewModel: [CalendarCellViewModel] {
-        daysOfWeek.map { CalendarCellViewModel(text: $0, type: .weekDayName) }
-    }
 
     func createCellViewModel(gridKey: GridKey, isHoliday: (Date) -> Bool, isWeekend: (Date) -> Bool) -> CalendarCellViewModel {
         let isWeekColumn = (gridKey.col == 0)
         guard !isWeekColumn else {
-            return CalendarCellViewModel(text: "\(weekNumber(for: gridKey.row))", 
+            return CalendarCellViewModel(text: "\(weekNumber(for: gridKey.row))",
                                          type: .week)
         }
         let isAfterMonthStartDay = gridKey.row * 7 + gridKey.col >= startDayOfWeek

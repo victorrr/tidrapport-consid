@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CalendarCellView: View {
     @ObservedObject var viewModel: CalendarCellViewModel
-    @State private var isInformationSheetPresented = false
 
     var body: some View {
         Text(viewModel.text ?? "")
@@ -17,13 +16,7 @@ struct CalendarCellView: View {
             .frame(minWidth: 0, maxWidth: .infinity)
             .background(viewModel.background)
             .padding(4)
-            .simultaneousGesture(
-                LongPressGesture().onEnded { _ in
-                    if viewModel.shouldShowInformation {
-                        isInformationSheetPresented.toggle()
-                    }
-                })
-            .sheet(isPresented: $isInformationSheetPresented, content: {
+            .sheet(isPresented: $viewModel.isInformationSheetPresented, content: {
                 let vm = DateInformationViewModel(timeEntry: viewModel.timeEntry,
                                                   extraInfo: viewModel.extraInfo)
                 return DateInformationView(viewModel: vm)

@@ -5,12 +5,12 @@
 //  Created by Victor Rendon on 2024-04-05.
 //
 
-import Foundation
 import SwiftUI
 
 final class CalendarCellViewModel: ObservableObject {
     @Published var isSelected = false
     @Published var timeEntry: TimeEntry?
+    @Published var isInformationSheetPresented = false
     let text: String?
     let type: CellType
     let date: Date?

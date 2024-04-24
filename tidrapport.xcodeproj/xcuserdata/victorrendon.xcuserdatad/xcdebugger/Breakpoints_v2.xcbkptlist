@@ -81,5 +81,97 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3ED32608-AA44-45FB-84EC-37345ACE7EE1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tidrapport/Calendar/MonthView/MonthView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "titleView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "97D15FF4-2A82-43E3-B5A0-C78DF8EE0710"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tidrapport/Calendar/MonthView/MonthView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "dateCell(cellViewModel:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DDC11CBA-81E7-49D0-A6C8-5C41EE88D772"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tidrapport/Calendar/CalendarCellView/CalendarCellViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "hash(into:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DDC11CBA-81E7-49D0-A6C8-5C41EE88D772 - 8ebe9995a5ea9e3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tidrapport.CalendarCellViewModel.isSelected.getter : Swift.Bool"
+                  moduleName = "tidrapport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victorrendon/git/tidrapport/tidrapport/Calendar/CalendarCellView/CalendarCellViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87">
+               </Location>
+               <Location
+                  uuid = "DDC11CBA-81E7-49D0-A6C8-5C41EE88D772 - b670e62e51cc1e57"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.Date) -&gt; Swift.Bool in tidrapport.CalendarCellViewModel.isSelected.getter : Swift.Bool"
+                  moduleName = "tidrapport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victorrendon/git/tidrapport/tidrapport/Calendar/CalendarCellView/CalendarCellViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87">
+               </Location>
+               <Location
+                  uuid = "DDC11CBA-81E7-49D0-A6C8-5C41EE88D772 - 92aa480121dfe9ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tidrapport.CalendarCellViewModel.hash(into: inout Swift.Hasher) -&gt; ()"
+                  moduleName = "tidrapport"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victorrendon/git/tidrapport/tidrapport/Calendar/CalendarCellView/CalendarCellViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
