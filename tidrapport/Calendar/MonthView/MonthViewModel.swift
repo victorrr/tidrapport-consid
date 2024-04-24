@@ -8,7 +8,6 @@
 import Foundation
 
 final class MonthViewModel: ObservableObject {
-    @Published var selectedDates: [Date] = []
     let daysOfWeek = ["M", "Ti", "O", "To", "F", "L", "S"]
     var cellViewModels: [GridKey: CalendarCellViewModel] = [:]
     private var month: Date
@@ -16,6 +15,28 @@ final class MonthViewModel: ObservableObject {
 
     init(month: Date) {
         self.month = month
+    }
+
+    var selectedDates: [Date] {
+        cellViewModels.values
+            .filter { $0.isSelected }
+            .compactMap { $0.date }
+    }
+
+    var monthName: String {
+        calendar.standaloneMonthSymbols[calendar.component(.month, from: month) - 1]
+    }
+
+    var rows: Int {
+        (range.count + startDayOfWeek + 6) / 7
+    }
+
+    var weekViewModel: CalendarCellViewModel {
+        CalendarCellViewModel(text: "V", type: .week)
+    }
+
+    var daysOfWeekViewModel: [CalendarCellViewModel] {
+        daysOfWeek.map { CalendarCellViewModel(text: $0, type: .weekDayName) }
     }
 
     func addCellViewModels(isHoliday: (Date) -> Bool, isWeekend: (Date) -> Bool) {
@@ -34,22 +55,6 @@ final class MonthViewModel: ObservableObject {
                 cellViewModels[key]?.timeEntry = matchingTimeEntry
             }
         }
-    }
-
-    var monthName: String {
-        calendar.standaloneMonthSymbols[calendar.component(.month, from: month) - 1]
-    }
-    
-    var rows: Int {
-        (range.count + startDayOfWeek + 6) / 7
-    }
-
-    var weekViewModel: CalendarCellViewModel {
-        CalendarCellViewModel(text: "V", type: .week)
-    }
-
-    var daysOfWeekViewModel: [CalendarCellViewModel] {
-        daysOfWeek.map { CalendarCellViewModel(text: $0, type: .weekDayName) }
     }
 }
 

@@ -61,15 +61,7 @@ private extension MonthView {
     func dateCell(cellViewModel: CalendarCellViewModel) -> some View {
         CalendarCellView(viewModel: cellViewModel)
             .simultaneousGesture(TapGesture().onEnded { _ in
-                guard let selectedDate = cellViewModel.date else { return }
                 cellViewModel.isSelected.toggle()
-                if let index = viewModel.selectedDates.firstIndex(of: selectedDate) {
-                    // Datumet är redan valt, så ta bort det från arrayen
-                    viewModel.selectedDates.remove(at: index)
-                } else {
-                    // Datumet är inte valt, så lägg till det i arrayen
-                    viewModel.selectedDates.append(selectedDate)
-                }
             })
     }
 }
