@@ -28,7 +28,7 @@ private extension MonthView {
         Text(viewModel.monthName.capitalized)
             .font(.title)
             .padding(.top, 8)
-            .foregroundColor(viewModel.allDatesSelected ? .green : .black)
+            .foregroundColor(viewModel.allDatesSelected ? Color(hex: "27ae60") : .black)
             .onTapGesture {
                 viewModel.toggleAllValidDatesSelected()
             }
@@ -65,7 +65,11 @@ private extension MonthView {
     func dateCell(cellViewModel: CalendarCellViewModel) -> some View {
         CalendarCellView(viewModel: cellViewModel)
             .simultaneousGesture(TapGesture().onEnded { _ in
-                cellViewModel.isSelected.toggle()
+                guard cellViewModel.shouldShowInformation else {
+                    cellViewModel.isSelected.toggle()
+                    return
+                }
+                cellViewModel.isInformationSheetPresented = true
             })
     }
 }

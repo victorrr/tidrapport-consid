@@ -45,37 +45,42 @@ final class CalendarCellViewModel: ObservableObject {
             return type.bgColor
         }
         if isSelected {
-            return .red
+            return Color(hex: "27ae60")
         }
-        if isHoliday || isWeekend {
-            return .yellow
+        if isWeekend {
+            return Color(hex: "f3f3f3")
+        }
+        if isHoliday  {
+            return Color(hex: "ef5350")
         }
         if timeEntry?.article.name == "Semester" {
-            return .blue
+            return Color(hex: "4dd0e1")
         }
         if timeEntry?.article.name == "Föräldraledig" {
-            return .indigo
+            return Color(hex: "16a085")
         }
         if timeEntry?.isSubmitted == true {
-            return .green
+            return Color(hex: "27ae60")
         }
         return .clear
     }
 
     var shouldShowInformation: Bool {
-        switch type {
-        case .date:
+        if type.isSelectable && timeEntry != nil {
+            if timeEntry?.isSubmitted == false {
+                return false // Det gå i dagsläget inte att ändra en dag som man påbörjat att rapportera på
+            }
             return true
-        default: return false
         }
+        return false
     }
 
     var extraInfo: String? {
         if isWeekend {
-            return "Klickad dag är på en helg"
+            return "Vald dag är på en helg"
         }
         if isHoliday {
-            return "Klickad dag är på en helgdag"
+            return "Vald dag är på en helgdag"
         }
         return nil
     }
@@ -107,9 +112,9 @@ extension CalendarCellViewModel {
         var bgColor: Color {
             switch self {
             case .weekDayName:
-                return .brown
+                return Color(hex: "f3f3f3")
             case .week:
-                return .gray
+                return Color(hex: "f3f3f3")
             case .date, .emptyDate:
                 return .clear
             }

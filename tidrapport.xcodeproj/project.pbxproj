@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E00DA9482BD93D8C00608E41 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00DA9472BD93D8C00608E41 /* ColorExtension.swift */; };
 		E00FCE262BC02CA20042DABA /* AddTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00FCE252BC02CA20042DABA /* AddTimeViewModel.swift */; };
 		E048A8192BB2BE1C002271C3 /* TimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A8182BB2BE1C002271C3 /* TimeEntry.swift */; };
 		E048A81B2BB2D071002271C3 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E048A81A2BB2D071002271C3 /* CalendarViewModel.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E00DA9472BD93D8C00608E41 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		E00FCE252BC02CA20042DABA /* AddTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeViewModel.swift; sourceTree = "<group>"; };
 		E048A8182BB2BE1C002271C3 /* TimeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntry.swift; sourceTree = "<group>"; };
 		E048A81A2BB2D071002271C3 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				E048A81E2BB2D126002271C3 /* DateIntervalExtension.swift */,
+				E00DA9472BD93D8C00608E41 /* ColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				E0D1D1132BC0324700ED5D74 /* CalendarCellViewModel.swift in Sources */,
 				E0F4019B2BD257CC0079491E /* DateInformationView.swift in Sources */,
 				E0FAFFB82BBC238800A223E6 /* MonthViewModel.swift in Sources */,
+				E00DA9482BD93D8C00608E41 /* ColorExtension.swift in Sources */,
 				E0BCB0622BB1AE2E00E1CD4B /* CalendarView.swift in Sources */,
 				E0F4019F2BD261800079491E /* TimeClient.swift in Sources */,
 				E0F401982BD11D0D0079491E /* LabelTextField.swift in Sources */,

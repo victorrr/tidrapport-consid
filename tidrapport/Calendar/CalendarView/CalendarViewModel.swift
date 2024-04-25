@@ -8,7 +8,7 @@
 import Foundation
 
 final class CalendarViewModel: ObservableObject {
-    @Published var isPresentingLoginView = true
+    @Published var isPresentingLoginView = false
     private var year: Int
     private var client: TimeClient = TimeClient()
     lazy var monthViewModels: [MonthViewModel] = (1..<13).compactMap(createMonthViewModel)
